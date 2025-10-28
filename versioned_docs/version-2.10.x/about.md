@@ -1,5 +1,4 @@
 ---
-slug: /
 id: about
 title: Welcome to the Apache Pulsar documentation portal
 sidebar_label: "About"
