@@ -1,0 +1,6 @@
+{
+  "copyright": {
+    "message": "<div><img class=\"footer-apache-logo\" src=\"/img/feather-logo-white.svg\" alt=\"\" width=\"20\"> Apache 软件基金会</div><p>Apache Pulsar 可在 Apache 许可证 2.0 版本下使用。Apache Pulsar 是为云构建的开源分布式消息和流处理平台。</p><p>版权所有 © ${new Date().getFullYear()} The Apache Software Foundation。保留所有权利。Apache、Pulsar、Apache Pulsar 和 Apache 羽毛标志是 The Apache Software Foundation 的商标或注册商标。</p>",
+    "description": "The copyright notice shown at the bottom of the footer"
+  }
+}

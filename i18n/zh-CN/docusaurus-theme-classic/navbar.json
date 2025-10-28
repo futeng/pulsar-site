@@ -1,0 +1,106 @@
+{
+  "theme.docs.DocCard.categoryDescription": {
+    "message": "分类",
+    "description": "The default description for a category"
+  },
+  "theme.navbar.nav": {
+    "message": "主导航",
+    "description": "The ARIA label for the main navigation"
+  },
+  "theme.navbar.mobileMenu.mainMenu": {
+    "message": "主菜单",
+    "description": "The label for the mobile navigation menu"
+  },
+  "theme.navbar.mobileMenu.secondaryMenu": {
+    "message": "副菜单",
+    "description": "The label for the secondary navigation menu"
+  },
+  "theme.tags.tagsListLabel": {
+    "message": "标签:",
+    "description": "The label alongside a tag list"
+  },
+  "theme.blog.post.readMore": {
+    "message": "阅读更多",
+    "description": "The label used in blog post item to link to full blog post page"
+  },
+  "theme.blog.post.readingTime.plurals": {
+    "message": "阅读 {readingTime} 分钟",
+    "description": "Pluralized label for \"{readingTime} min read\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  },
+  "theme.TOCCollapsible.toggleButtonLabel": {
+    "message": "本页目录",
+    "description": "The label used by the button on the collapsible TOC component"
+  },
+  "theme.docs.sidebar.expandButtonTitle": {
+    "message": "展开侧边栏",
+    "description": "The ARIA label and title attribute for expand button of doc sidebar"
+  },
+  "theme.docs.sidebar.collapseButtonTitle": {
+    "message": "收起侧边栏",
+    "description": "The ARIA label and title attribute for collapse button of doc sidebar"
+  },
+  "theme.docs.paginator.navbar.title": {
+    "message": "文档",
+    "description": "The title for the link to the documentation landing page"
+  },
+  "theme.docs.tagDocListPage.title": {
+    "message": "{nDocs} 篇文档包含 \"{tagName}\" 标签",
+    "description": "The title of the page for a docs tag"
+  },
+  "theme.docs.versionBadge.label": {
+    "message": "版本: {versionLabel}",
+    "description": "The label for the version badge"
+  },
+  "theme.docs.versions.unreleasedVersionLabel": {
+    "message": "此处为文档的未发布版本 {siteVersion}，适用于 {versionLabel} 版本。",
+    "description": "The label used to tell the user that they're browsing an unreleased doc version"
+  },
+  "theme.docs.versions.unmaintainedVersionLabel": {
+    "message": "此为 {versionLabel} 版本文档，已不再主动维护。",
+    "description": "The label used to tell the user that they're browsing an unmaintained doc version"
+  },
+  "theme.docs.breadcrumbs.home": {
+    "message": "首页",
+    "description": "The ARIA label for the home page in the breadcrumbs"
+  },
+  "theme.docs.breadcrumbs.nav": {
+    "message": "面包屑",
+    "description": "The ARIA label for the breadcrumbs"
+  },
+  "theme.blog.paginator.navAriaLabel": {
+    "message": "博客文章列表导航",
+    "description": "The ARIA label for the blog posts pagination"
+  },
+  "theme.blog.paginator.newerEntries": {
+    "message": "较新的文章",
+    "description": "The label used to navigate to the newer blog posts"
+  },
+  "theme.blog.paginator.olderEntries": {
+    "message": "较旧的文章",
+    "description": "The label used to navigate to the older blog posts"
+  },
+  "theme.common.editThisPage": {
+    "message": "编辑此页",
+    "description": "The label for the link to edit this page"
+  },
+  "theme.common.headingLinkTitle": {
+    "message": "标题的直接链接",
+    "description": "Title for link to heading"
+  },
+  "theme.lastUpdated.atDate": {
+    "message": "于 {date}",
+    "description": "The words used to describe on which date a page was last updated"
+  },
+  "theme.lastUpdated.byUser": {
+    "message": "由 {user} 更新",
+    "description": "The words used to describe by who the page has been last updated"
+  },
+  "theme.lastUpdated.lastUpdatedAtBy": {
+    "message": "最后更新于 {atDate} {byUser}",
+    "description": "The sentence used to display when a page has been last updated, and by who"
+  },
+  "theme.SearchBar.label": {
+    "message": "搜索",
+    "description": "The ARIA label and placeholder for search button"
+  }
+}

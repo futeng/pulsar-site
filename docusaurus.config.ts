@@ -1,7 +1,9 @@
 // @ts-check
 
 const _ = require("lodash");
-const { renderAnnouncementBar } = require("./src/components/ui/renderAnnouncementBar");
+const {
+  renderAnnouncementBar,
+} = require("./src/components/ui/renderAnnouncementBar");
 const versions = require("./versions.json");
 const latestVersion = versions[0];
 const versionsMap = {
@@ -12,7 +14,7 @@ const versionsMap = {
         path: item,
       };
     }),
-    "label"
+    "label",
   ),
   current: {
     label: "Next",
@@ -40,7 +42,7 @@ const {
   githubUrl,
   githubSiteUrl,
   baseUrl,
-  restApiBaseUrlMapping
+  restApiBaseUrlMapping,
 } = require("./site-baseurls");
 
 const injectLinkParse = (prefix, name, path) => {
@@ -101,15 +103,21 @@ const injectLinkParseForEndpoint = (info) => {
 
   let restUrl;
   if (suffix.indexOf("?version=") >= 0) {
-    const suffixAndVersion = suffix.split("?version=")
-    restUrl = "version=" + suffixAndVersion[1] + "&apiversion=" + restApiVersion + "#" + suffixAndVersion[0];
+    const suffixAndVersion = suffix.split("?version=");
+    restUrl =
+      "version=" +
+      suffixAndVersion[1] +
+      "&apiversion=" +
+      restApiVersion +
+      "#" +
+      suffixAndVersion[0];
     if (suffixAndVersion[0].startsWith("operation/")) {
-      path += suffixAndVersion[0].slice("operation".length)
+      path += suffixAndVersion[0].slice("operation".length);
     }
   } else {
     restUrl = "version=master&apiversion=" + restApiVersion + "#" + suffix;
     if (suffix.startsWith("operation/")) {
-      path += suffix.slice("operation".length)
+      path += suffix.slice("operation".length);
     }
   }
 
@@ -127,6 +135,20 @@ module.exports = async function createConfigAsync() {
       "Apache Pulsar is a distributed, open source pub-sub messaging and streaming platform for real-time workloads, managing hundreds of billions of events per day.",
     url: "https://pulsar.apache.org",
     baseUrl: baseUrl,
+    i18n: {
+      defaultLocale: "en",
+      locales: ["en", "zh-CN"],
+      localeConfigs: {
+        en: {
+          label: "English",
+          direction: "ltr",
+        },
+        "zh-CN": {
+          label: "中文",
+          direction: "ltr",
+        },
+      },
+    },
     onBrokenLinks: "warn",
     onBrokenMarkdownLinks: "warn",
     favicon: "img/favicon.ico",
@@ -137,13 +159,15 @@ module.exports = async function createConfigAsync() {
       preprocessor: ({ filePath, fileContent }) => {
         return fileContent.replaceAll(/{@inject:([^}]+)}/g, (_, p1) => {
           const p1Trimmed = p1.trim();
-          const endpointPrefix = 'endpoint|';
+          const endpointPrefix = "endpoint|";
           let link, text;
           if (p1Trimmed.startsWith(endpointPrefix)) {
             // @ts-ignore
-            ({ link, text } = injectLinkParseForEndpoint(p1Trimmed.substring(endpointPrefix.length)));
+            ({ link, text } = injectLinkParseForEndpoint(
+              p1Trimmed.substring(endpointPrefix.length),
+            ));
           } else {
-            const [prefix, name, path] = p1Trimmed.split(':');
+            const [prefix, name, path] = p1Trimmed.split(":");
             ({ link, text } = injectLinkParse(prefix, name, path));
           }
           return `[${text}](${link})`; // Format as a markdown link
@@ -152,13 +176,13 @@ module.exports = async function createConfigAsync() {
     },
     themeConfig:
       /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
-      ({
-        image: 'img/pulsar-social-media-card.png',
+      {
+        image: "img/pulsar-social-media-card.png",
         announcementBar: {
           id: "summit",
           content: renderAnnouncementBar(
             "✨ Apache Pulsar 4.1 is here! ✨",
-            "/blog/2025/09/09/announcing-apache-pulsar-4-1/"
+            "/blog/2025/09/09/announcing-apache-pulsar-4-1/",
           ),
           backgroundColor: "#282826",
           textColor: "#fff",
@@ -168,14 +192,14 @@ module.exports = async function createConfigAsync() {
           disableSwitch: true,
         },
         zoom: {
-          selector: '.markdown img',
+          selector: ".markdown img",
           background: {
-            light: '#fff',
-            dark: '#111'
+            light: "#fff",
+            dark: "#111",
           },
           config: {
             // options you can specify via https://github.com/francoischalifour/medium-zoom#usage
-          }
+          },
         },
         navbar: {
           title: "",
@@ -183,7 +207,7 @@ module.exports = async function createConfigAsync() {
             alt: "Apache Pulsar logo",
             src: "img/logo-black.svg",
             width: 127,
-            height: 25
+            height: 25,
           },
           items: [
             {
@@ -193,18 +217,18 @@ module.exports = async function createConfigAsync() {
               items: [
                 {
                   to: `/docs/${latestVersion}/concepts-overview/`,
-                  activeBaseRegex: `docs/(${versions.join('|')})/concepts-overview/$`,
+                  activeBaseRegex: `docs/(${versions.join("|")})/concepts-overview/$`,
                   label: "Concepts",
                 },
                 {
                   to: `/docs/${latestVersion}/`,
-                  activeBaseRegex: `docs/(${versions.join('|')})/$`,
+                  activeBaseRegex: `docs/(${versions.join("|")})/$`,
                   label: "Quickstart",
                 },
                 {
                   to: "/ecosystem/",
                   label: "Ecosystem",
-                }
+                },
               ],
             },
             {
@@ -412,7 +436,7 @@ module.exports = async function createConfigAsync() {
           apiKey: "42d24d221fbd8eb59804a078208aaec0",
           indexName: "apache_pulsar",
         },
-      }),
+      },
 
     presets: [
       [
@@ -424,10 +448,16 @@ module.exports = async function createConfigAsync() {
             sidebarPath: require.resolve("./sidebars.js"),
             editUrl: `${githubSiteUrl}/edit/main`,
             beforeDefaultRemarkPlugins: [
-              [(await import('./src/server/remarkPlugins/swagger')).default, {baseDir: __dirname, restApiBaseUrlMapping: restApiBaseUrlMapping}],
+              [
+                (await import("./src/server/remarkPlugins/swagger")).default,
+                {
+                  baseDir: __dirname,
+                  restApiBaseUrlMapping: restApiBaseUrlMapping,
+                },
+              ],
             ],
-            remarkPlugins: [(await import('remark-math')).default],
-            rehypePlugins: [(await import('rehype-katex')).default],
+            remarkPlugins: [(await import("remark-math")).default],
+            rehypePlugins: [(await import("rehype-katex")).default],
             versions: versionsMap,
             onlyIncludeVersions: buildVersions || ["current"],
           },
@@ -435,7 +465,7 @@ module.exports = async function createConfigAsync() {
             blogSidebarCount: 0,
             showReadingTime: true,
             editUrl: `${githubSiteUrl}/edit/main/`,
-            onInlineAuthors: 'ignore',
+            onInlineAuthors: "ignore",
           },
           theme: {
             customCss: [
@@ -459,25 +489,25 @@ module.exports = async function createConfigAsync() {
     ],
     plugins: [
       [
-        '@docusaurus/plugin-client-redirects',
+        "@docusaurus/plugin-client-redirects",
         {
           redirects: [
             {
-              from: '/contribute/setup-mergetool',
-              to: '/contribute/setup-git',
+              from: "/contribute/setup-mergetool",
+              to: "/contribute/setup-git",
             },
             {
-              from: '/resources',
-              to: '/articles',
+              from: "/resources",
+              to: "/articles",
             },
           ],
         },
       ],
-      'docusaurus-plugin-image-zoom',
+      "docusaurus-plugin-image-zoom",
       [
         "content-docs",
         /** @type {import('@docusaurus/plugin-content-docs').Options} */
-        ({
+        {
           id: "contribute",
           path: "contribute",
           routeBasePath: "contribute",
@@ -485,53 +515,53 @@ module.exports = async function createConfigAsync() {
           showLastUpdateTime: true,
           sidebarPath: require.resolve("./sidebarsDevelopment.js"),
           editUrl: `${githubSiteUrl}/edit/main`,
-        }),
+        },
       ],
       [
         "content-docs",
         /** @type {import('@docusaurus/plugin-content-docs').Options} */
-        ({
+        {
           id: "release-notes",
           path: "release-notes",
           routeBasePath: "release-notes",
           numberPrefixParser: false,
           editUrl: `${githubSiteUrl}/edit/main`,
           sidebarPath: require.resolve("./sidebarsReleaseNotes.js"),
-        }),
+        },
       ],
       [
         "content-docs",
         /** @type {import('@docusaurus/plugin-content-docs').Options} */
-        ({
+        {
           id: "security",
           path: "security",
           routeBasePath: "security",
           sidebarPath: false,
-        }),
+        },
       ],
       [
         "content-docs",
         /** @type {import('@docusaurus/plugin-content-docs').Options} */
-        ({
+        {
           id: "client-feature-matrix",
           path: "client-feature-matrix",
           routeBasePath: "client-feature-matrix",
           sidebarPath: false,
-        }),
+        },
       ],
       function customWebpackPlugin(context, options) {
         return {
-          name: 'custom-webpack-plugin',
+          name: "custom-webpack-plugin",
           configureWebpack(config, isServer, utils) {
             return {
               module: {
                 rules: [
                   {
                     test: /\/src\/server\/.*$/,
-                    use: 'null-loader'
-                  }
-                ]
-              }
+                    use: "null-loader",
+                  },
+                ],
+              },
             };
           },
         };
