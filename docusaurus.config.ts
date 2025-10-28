@@ -451,6 +451,7 @@ module.exports = async function createConfigAsync() {
         {
           docs: {
             path: "docs",
+            routeBasePath: "docs",
             sidebarPath: require.resolve("./sidebars.js"),
             editUrl: `${githubSiteUrl}/edit/main`,
             beforeDefaultRemarkPlugins: [
