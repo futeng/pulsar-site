@@ -22,7 +22,7 @@ const versionsMap = {
   },
 };
 
-let buildVersions = ["current"];
+let buildVersions = ["current", "4.0.x", "3.0.x", "2.10.x"];
 try {
   buildVersions = require("./.build-versions.json");
 } catch (error) {
