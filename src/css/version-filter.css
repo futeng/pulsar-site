@@ -1,0 +1,65 @@
+/* 隐藏版本下拉菜单中不需要的版本 */
+/* 只显示：Next, 4.0.x, 3.0.x, 2.10.x */
+
+/* 隐藏3.3.x版本选项 */
+.dropdown__link[href*="/docs/3.3.x/"],
+.dropdown__link[href*="/docs/3.2.x/"],
+.dropdown__link[href*="/docs/3.1.x/"],
+.dropdown__link[href*="/docs/3.4.x/"],
+.dropdown__link[href*="/docs/3.5.x/"],
+.dropdown__link[href*="/docs/3.6.x/"],
+.dropdown__link[href*="/docs/3.7.x/"],
+.dropdown__link[href*="/docs/3.8.x/"],
+.dropdown__link[href*="/docs/3.9.x/"],
+.dropdown__link[href*="/docs/2.11.x/"],
+.dropdown__link[href*="/docs/2.9.x/"],
+.dropdown__link[href*="/docs/2.8.x/"],
+.dropdown__link[href*="/docs/2.7.x/"],
+.dropdown__link[href*="/docs/2.6.x/"],
+.dropdown__link[href*="/docs/2.5.x/"],
+.dropdown__link[href*="/docs/2.4.x/"],
+.dropdown__link[href*="/docs/2.3.x/"],
+.dropdown__link[href*="/docs/2.2.x/"],
+.dropdown__link[href*="/docs/2.1.x/"],
+.dropdown__link[href*="/docs/2.0.x/"],
+.dropdown__link[href*="/docs/1.0.x/"] {
+  display: none !important;
+}
+
+/* 隐藏版本分隔线中不需要的版本 */
+.navbar__item:has(.dropdown__link[href*="/docs/3.3.x/"]),
+.navbar__item:has(.dropdown__link[href*="/docs/3.2.x/"]),
+.navbar__item:has(.dropdown__link[href*="/docs/3.1.x/"]),
+.navbar__item:has(.dropdown__link[href*="/docs/3.4.x/"]),
+.navbar__item:has(.dropdown__link[href*="/docs/3.5.x/"]),
+.navbar__item:has(.dropdown__link[href*="/docs/3.6.x/"]),
+.navbar__item:has(.dropdown__link[href*="/docs/3.7.x/"]),
+.navbar__item:has(.dropdown__link[href*="/docs/3.8.x/"]),
+.navbar__item:has(.dropdown__link[href*="/docs/3.9.x/"]),
+.navbar__item:has(.dropdown__link[href*="/docs/2.11.x/"]),
+.navbar__item:has(.dropdown__link[href*="/docs/2.9.x/"]),
+.navbar__item:has(.dropdown__link[href*="/docs/2.8.x/"]),
+.navbar__item:has(.dropdown__link[href*="/docs/2.7.x/"]),
+.navbar__item:has(.dropdown__link[href*="/docs/2.6.x/"]),
+.navbar__item:has(.dropdown__link[href*="/docs/2.5.x/"]),
+.navbar__item:has(.dropdown__link[href*="/docs/2.4.x/"]),
+.navbar__item:has(.dropdown__link[href*="/docs/2.3.x/"]),
+.navbar__item:has(.dropdown__link[href*="/docs/2.2.x/"]),
+.navbar__item:has(.dropdown__link[href*="/docs/2.1.x/"]),
+.navbar__item:has(.dropdown__link[href*="/docs/2.0.x/"]),
+.navbar__item:has(.dropdown__link[href*="/docs/1.0.x/"]) {
+  display: none !important;
+}
+
+/* 备用：如果需要更严格的选择器 */
+/*
+.navbar__dropdown .dropdown__menu .dropdown__item {
+  display: none;
+}
+.navbar__dropdown .dropdown__menu .dropdown__item:has([href*="/docs/current/"]),
+.navbar__dropdown .dropdown__menu .dropdown__item:has([href*="/docs/4.0.x/"]),
+.navbar__dropdown .dropdown__menu .dropdown__item:has([href*="/docs/3.0.x/"]),
+.navbar__dropdown .dropdown__menu .dropdown__item:has([href*="/docs/2.10.x/"]) {
+  display: block;
+}
+*/

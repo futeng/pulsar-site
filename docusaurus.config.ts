@@ -7,19 +7,17 @@ const {
 const versions = require("./versions.json");
 const latestVersion = versions[0];
 const versionsMap = {
-  ..._.keyBy(
-    versions.map((item) => {
-      return {
-        label: item,
-        path: item,
-      };
-    }),
-    "label",
-  ),
   current: {
     label: "Next",
     path: "next",
   },
+  ...versions.reduce((acc, item) => {
+    acc[item] = {
+      label: item,
+      path: item,
+    };
+    return acc;
+  }, {}),
 };
 
 let buildVersions = ["current", "4.0.x", "3.0.x", "2.10.x"];
@@ -465,8 +463,6 @@ module.exports = async function createConfigAsync() {
             ],
             remarkPlugins: [(await import("remark-math")).default],
             rehypePlugins: [(await import("rehype-katex")).default],
-            versions: versionsMap,
-            onlyIncludeVersions: buildVersions || ["current"],
           },
           blog: {
             blogSidebarCount: 0,
@@ -486,6 +482,7 @@ module.exports = async function createConfigAsync() {
               require.resolve("./src/css/footer.css"),
               require.resolve("./src/css/variables.css"),
               require.resolve("./src/css/blog.css"),
+              require.resolve("./src/css/version-filter.css"),
             ],
           },
           //googleAnalytics: {
@@ -506,6 +503,50 @@ module.exports = async function createConfigAsync() {
             {
               from: "/resources",
               to: "/articles",
+            },
+            {
+              from: "/",
+              to: "/zh-CN/",
+            },
+            {
+              from: "/docs",
+              to: "/zh-CN/docs",
+            },
+            {
+              from: "/docs/",
+              to: "/zh-CN/docs/",
+            },
+            {
+              from: "/docs/next",
+              to: "/zh-CN/docs/next",
+            },
+            {
+              from: "/docs/next/",
+              to: "/zh-CN/docs/next/",
+            },
+            {
+              from: "/docs/4.0.x",
+              to: "/zh-CN/docs/4.0.x",
+            },
+            {
+              from: "/docs/4.0.x/",
+              to: "/zh-CN/docs/4.0.x/",
+            },
+            {
+              from: "/docs/3.0.x",
+              to: "/zh-CN/docs/3.0.x",
+            },
+            {
+              from: "/docs/3.0.x/",
+              to: "/zh-CN/docs/3.0.x/",
+            },
+            {
+              from: "/docs/2.10.x",
+              to: "/zh-CN/docs/2.10.x",
+            },
+            {
+              from: "/docs/2.10.x/",
+              to: "/zh-CN/docs/2.10.x/",
             },
           ],
         },
@@ -534,7 +575,7 @@ module.exports = async function createConfigAsync() {
           numberPrefixParser: false,
           editUrl: `${githubSiteUrl}/edit/main`,
           sidebarPath: require.resolve("./sidebarsReleaseNotes.js"),
-        },
+          },
       ],
       [
         "content-docs",

@@ -18,29 +18,19 @@ const versions = [
     path: "/docs/next"
   },
   {
-    label: '4.1.x',
-    name: '4.1.x',
-    path: `/docs/4.1.x`,
-  },
-  {
-    label: '4.0.x LTS',
+    label: '4.0.x',
     name: '4.0.x',
     path: `/docs/4.0.x`,
   },
   {
-    label: '3.3.x',
-    name: '3.3.x',
-    path: `/docs/3.3.x`,
-  },
-  {
-    label: '3.0.x LTS',
+    label: '3.0.x',
     name: '3.0.x',
     path: `/docs/3.0.x`,
   },
   {
-    name: "others",
-    label: "Others",
-    path: "/versions",
+    label: '2.10.x',
+    name: '2.10.x',
+    path: `/docs/2.10.x`,
   }
 ];
 
@@ -61,21 +51,24 @@ export default function DocsVersionDropdownNavbarItem({
     useDocsPreferredVersion(docsPluginId);
   function getItems() {
     const versionLinks = versions.map((version) => {
-      // We try to link to the same doc, in another version
-      // When not possible, fallback to the "main doc" of the version
+      // Default to about page for all versions
       const _version = version.name === "current" ? "/next" : "/" + version.name;
-      const _docId = activeDocContext.activeDoc.id === "about" ? "/" : "/" + activeDocContext.activeDoc.id;
+
+      // Check if current URL has language prefix and preserve it
+      const currentPath = window.location.pathname;
+      const langPrefixMatch = currentPath.match(/^\/([a-z]{2}(-[A-Z]{2})?)\//);
+      const langPrefix = langPrefixMatch ? "/" + langPrefixMatch[1] : "";
+
       const versionDoc = {
-        path: "/docs" + _version + _docId,
+        path: langPrefix + "/docs" + _version + "/about",
       };
       return {
         isNavLink: true,
         label: version.label,
-        to: "",
+        to: versionDoc.path,
         isActive: () => version.name === activeDocContext.activeVersion.name,
         onClick: () => {
           savePreferredVersionName(version.name);
-          window.location.href = version.name === "others" ? "/versions" : versionDoc.path;
         },
       };
     });
