@@ -136,15 +136,15 @@ module.exports = async function createConfigAsync() {
     url: "https://pulsar.apache.org",
     baseUrl: baseUrl,
     i18n: {
-      defaultLocale: "en",
-      locales: ["en", "zh-CN"],
+      defaultLocale: "zh-CN",
+      locales: ["zh-CN", "en"],
       localeConfigs: {
-        en: {
-          label: "English",
-          direction: "ltr",
-        },
         "zh-CN": {
           label: "中文",
+          direction: "ltr",
+        },
+        en: {
+          label: "English",
           direction: "ltr",
         },
       },
