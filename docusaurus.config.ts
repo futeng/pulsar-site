@@ -339,6 +339,12 @@ module.exports = async function createConfigAsync() {
               position: "right",
               className: "navbar_download_button",
             },
+            {
+              type: "docsVersionDropdown",
+              position: "right",
+              dropdownItemsBefore: [],
+              dropdownItemsAfter: [],
+            },
           ],
         },
         footer: {
