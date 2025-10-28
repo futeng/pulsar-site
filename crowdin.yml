@@ -1,0 +1,3 @@
+files:
+  - source: /blog/**/*.md
+    translation: '``` /i18n/zh-CN/docusaurus-plugin-content-blog/**/%original_file_name% ```'
