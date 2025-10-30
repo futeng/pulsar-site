@@ -1,0 +1,42 @@
+{
+  "copyright": {
+    "message": "Copyright © 2025 The Apache Software Foundation. All Rights Reserved. Apache Pulsar, Pulsar, Apache, the Apache feather logo, and the Apache Pulsar project logo are trademarks or registered trademarks of The Apache Software Foundation.",
+    "description": "The footer copyright"
+  },
+  "link.item.label.Foundation": {
+    "message": "基金会",
+    "description": "The label of footer link with label=Foundation linking to https://www.apache.org/"
+  },
+  "link.item.label.Events": {
+    "message": "活动",
+    "description": "The label of footer link with label=Events linking to https://www.apache.org/events/current-event.html"
+  },
+  "link.item.label.License": {
+    "message": "许可证",
+    "description": "The label of footer link with label=License linking to https://www.apache.org/licenses/"
+  },
+  "link.item.label.Thanks": {
+    "message": "致谢",
+    "description": "The label of footer link with label=Thanks linking to https://www.apache.org/foundation/thanks"
+  },
+  "link.item.label.Sponsorship": {
+    "message": "赞助",
+    "description": "The label of footer link with label=Sponsorship linking to https://www.apache.org/foundation/sponsorship"
+  },
+  "link.item.label.Security": {
+    "message": "安全",
+    "description": "The label of footer link with label=Security linking to /security"
+  },
+  "link.item.label.Privacy": {
+    "message": "隐私",
+    "description": "The label of footer link with label=Privacy linking to https://www.apache.org/foundation/policies/privacy.html"
+  },
+  "link.item.label.Contact": {
+    "message": "联系我们",
+    "description": "The label of footer link with label=Contact linking to /contact"
+  },
+  "logo.alt": {
+    "message": "Pulsar Logo",
+    "description": "The alt text of footer logo"
+  }
+}

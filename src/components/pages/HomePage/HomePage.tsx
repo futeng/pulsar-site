@@ -6,6 +6,7 @@ import ShortInfo from './ShortInfo/ShortInfo';
 import Users from './Users/Users';
 import communityNumbers from "@site/data/community-numbers";
 import useBaseUrl from "@docusaurus/useBaseUrl";
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 import Slider from '@site/src/components/ui/Slider/Slider';
 import BrowserOnly from "@docusaurus/BrowserOnly";
@@ -17,6 +18,26 @@ import s from './HomePage.module.css';
 import HowPulsarWorks from './HowPulsarWorks/HowPulsarWorks';
 
 const HomePage = () => {
+  const { i18n } = useDocusaurusContext();
+
+  const translations = {
+    'zh-cn': {
+      pulsarUseCases: "Pulsar 用例",
+      useCasesDescription: "独特和常见用例的结合使 Pulsar 区别于其他消息中间件。",
+      readMore: "了解更多",
+      pulsarTrustedCommunity: "Pulsar 可信社区",
+      joinUsAndStartContributing: "加入我们并开始贡献"
+    },
+    'en': {
+      pulsarUseCases: "Pulsar use cases",
+      useCasesDescription: "A combination of unique and common use cases sets Pulsar apart from other message brokers.",
+      readMore: "Read more",
+      pulsarTrustedCommunity: "Pulsar trusted community",
+      joinUsAndStartContributing: "Join us and start contributing"
+    }
+  };
+
+  const t = (key) => translations[i18n.currentLocale][key] || translations['en'][key];
 
   const makeiconclass = (iconname) => {
     let icon = '';
@@ -47,8 +68,8 @@ const HomePage = () => {
           <section className={s.UseCases}>
             <div className={s.CommunityContent}>
               <div>
-                <h2>Pulsar use cases</h2>
-                <p>A combination of unique and common use cases sets Pulsar apart from other message brokers.</p>
+                <h2>{t('pulsarUseCases')}</h2>
+                <p>{t('useCasesDescription')}</p>
               </div>
               <div className={s.Slider}>
                 <BrowserOnly>
@@ -61,7 +82,7 @@ const HomePage = () => {
                             <h3>{scase.title}</h3>
                             <div className={s.SlideMB}>{scase.smallText}</div>
                             <div>
-                                <Button title='Read more' href={'/use-cases#case'+i} variant='transparentBlack' />
+                                <Button title={t('readMore')} href={'/use-cases#case'+i} variant='transparentBlack' />
                             </div>
                           </div>
                         </div>
@@ -77,8 +98,8 @@ const HomePage = () => {
             <div className={s.CommunityNumbersBlur} />
             <div className={s.CommunityContent}>
               <div>
-                <h2>Pulsar trusted community</h2>
-                <p>Join us and start contributing</p>
+                <h2>{t('pulsarTrustedCommunity')}</h2>
+                <p>{t('joinUsAndStartContributing')}</p>
               </div>
             </div>
             <div className={s.CommunityContent}>

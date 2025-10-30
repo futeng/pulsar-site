@@ -1,0 +1,297 @@
+{
+  "glossary": {
+    "metadata": {
+      "name": "Apache Pulsar 中文术语表",
+      "version": "1.0",
+      "lastUpdated": "2025-10-29",
+      "description": "Apache Pulsar 官方文档中文翻译术语对照表"
+    },
+    "categories": {
+      "core_concepts": {
+        "name": "核心概念术语",
+        "terms": {
+          "Broker": {
+            "translation": "Broker",
+            "keepOriginal": true,
+            "note": "消息代理服务器，Pulsar核心组件"
+          },
+          "Bookie": {
+            "translation": "Bookie",
+            "keepOriginal": true,
+            "note": "BookKeeper存储节点"
+          },
+          "BookKeeper": {
+            "translation": "BookKeeper",
+            "keepOriginal": true,
+            "note": "分布式日志存储系统"
+          },
+          "Topic": {
+            "translation": "Topic",
+            "alternativeTranslation": "主题",
+            "keepOriginal": true,
+            "note": "优先保持英文Topic，括号注释（主题）"
+          },
+          "Partition": {
+            "translation": "分区",
+            "note": "Topic的物理分割单元"
+          },
+          "Ledger": {
+            "translation": "Ledger",
+            "keepOriginal": true,
+            "note": "BookKeeper中的日志段"
+          },
+          "Namespace": {
+            "translation": "命名空间",
+            "note": "租户下的资源组织单元"
+          },
+          "Tenant": {
+            "translation": "租户",
+            "note": "多租户隔离的最高层级"
+          },
+          "Subscription": {
+            "translation": "订阅",
+            "note": "消费者订阅Topic的方式"
+          },
+          "Producer": {
+            "translation": "生产者",
+            "note": "发送消息的客户端"
+          },
+          "Consumer": {
+            "translation": "消费者",
+            "note": "接收消息的客户端"
+          },
+          "Message": {
+            "translation": "消息",
+            "note": "Pulsar传输的数据单元"
+          },
+          "Cursor": {
+            "translation": "游标",
+            "note": "订阅的消费位置标记"
+          },
+          "Acknowledgment": {
+            "translation": "确认",
+            "abbreviation": "ACK",
+            "note": "消费者确认消息已处理"
+          },
+          "Negative Acknowledgment": {
+            "translation": "否定确认",
+            "abbreviation": "NACK",
+            "note": "消费者拒绝消息"
+          }
+        }
+      },
+      "subscription_modes": {
+        "name": "订阅模式",
+        "terms": {
+          "Exclusive": {
+            "translation": "独占模式"
+          },
+          "Shared": {
+            "translation": "共享模式"
+          },
+          "Failover": {
+            "translation": "故障转移模式"
+          },
+          "Key_Shared": {
+            "translation": "键共享模式"
+          }
+        }
+      },
+      "architecture_components": {
+        "name": "架构组件",
+        "terms": {
+          "Managed Ledger": {
+            "translation": "Managed Ledger",
+            "keepOriginal": true
+          },
+          "Journal": {
+            "translation": "Journal",
+            "keepOriginal": true
+          },
+          "Entry": {
+            "translation": "Entry",
+            "keepOriginal": true
+          },
+          "Segment": {
+            "translation": "Segment",
+            "keepOriginal": true
+          },
+          "Ensemble": {
+            "translation": "副本集"
+          },
+          "Quorum": {
+            "translation": "Quorum",
+            "keepOriginal": true
+          },
+          "ZooKeeper": {
+            "translation": "ZooKeeper",
+            "keepOriginal": true
+          },
+          "Metadata Store": {
+            "translation": "元数据存储"
+          },
+          "Proxy": {
+            "translation": "Proxy",
+            "keepOriginal": true
+          }
+        }
+      },
+      "functions": {
+        "name": "Functions 相关",
+        "terms": {
+          "Pulsar Functions": {
+            "translation": "Pulsar Functions",
+            "keepOriginal": true
+          },
+          "Function Mesh": {
+            "translation": "Function Mesh",
+            "keepOriginal": true
+          },
+          "Stateful Function": {
+            "translation": "有状态函数"
+          },
+          "Stateless Function": {
+            "translation": "无状态函数"
+          },
+          "Windowing": {
+            "translation": "窗口化"
+          }
+        }
+      },
+      "io_connectors": {
+        "name": "IO Connectors",
+        "terms": {
+          "Source Connector": {
+            "translation": "Source 连接器"
+          },
+          "Sink Connector": {
+            "translation": "Sink 连接器"
+          },
+          "Connector": {
+            "translation": "连接器"
+          }
+        }
+      },
+      "storage_performance": {
+        "name": "存储与性能",
+        "terms": {
+          "Tiered Storage": {
+            "translation": "分层存储"
+          },
+          "Offload": {
+            "translation": "卸载"
+          },
+          "Compaction": {
+            "translation": "压缩"
+          },
+          "Deduplication": {
+            "translation": "去重"
+          },
+          "Retention Policy": {
+            "translation": "保留策略"
+          },
+          "TTL": {
+            "translation": "生存时间",
+            "keepOriginal": true,
+            "fullForm": "Time To Live"
+          },
+          "Backlog": {
+            "translation": "积压",
+            "alternativeTranslation": "Backlog"
+          }
+        }
+      },
+      "security": {
+        "name": "安全相关",
+        "terms": {
+          "Authentication": {
+            "translation": "认证"
+          },
+          "Authorization": {
+            "translation": "授权"
+          },
+          "TLS": {
+            "translation": "TLS",
+            "keepOriginal": true
+          },
+          "SSL": {
+            "translation": "SSL",
+            "keepOriginal": true
+          },
+          "Token": {
+            "translation": "Token",
+            "alternativeTranslation": "令牌"
+          },
+          "JWT": {
+            "translation": "JWT",
+            "keepOriginal": true
+          },
+          "ACL": {
+            "translation": "访问控制列表",
+            "abbreviation": "ACL",
+            "fullForm": "Access Control List"
+          }
+        }
+      },
+      "operations": {
+        "name": "运维相关",
+        "terms": {
+          "Cluster": {
+            "translation": "集群"
+          },
+          "Replication": {
+            "translation": "复制",
+            "alternativeTranslation": "副本"
+          },
+          "Geo-Replication": {
+            "translation": "跨地域复制"
+          },
+          "Load Balancing": {
+            "translation": "负载均衡"
+          },
+          "Unload": {
+            "translation": "卸载"
+          },
+          "Bundle": {
+            "translation": "Bundle",
+            "keepOriginal": true
+          },
+          "Schema Registry": {
+            "translation": "Schema 注册中心"
+          },
+          "Schema": {
+            "translation": "Schema",
+            "alternativeTranslation": "模式"
+          }
+        }
+      }
+    },
+    "translationRules": {
+      "alwaysKeepEnglish": [
+        "Broker",
+        "Bookie",
+        "BookKeeper",
+        "Ledger",
+        "Managed Ledger",
+        "Pulsar Functions",
+        "Function Mesh",
+        "Journal",
+        "Entry",
+        "Segment",
+        "Quorum",
+        "ZooKeeper",
+        "Proxy",
+        "Bundle",
+        "TLS",
+        "SSL",
+        "JWT"
+      ],
+      "preferEnglishWithAnnotation": [
+        "Topic"
+      ],
+      "keepCommandsAndAPIs": true,
+      "keepCodeVariables": true,
+      "keepURLs": true
+    }
+  }
+}

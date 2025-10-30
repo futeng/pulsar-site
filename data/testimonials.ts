@@ -9,49 +9,49 @@ const testimonials: Testimonial[] = [
     author: "Greg Methvin",
     company: "Iterable",
     text:
-      "Pulsar is unique in that it supports both streaming and queueing use cases, while also supporting a wide feature set that makes it a viable alternative to many other distributed messaging technologies currently being used in our architecture. Pulsar covers all of our use cases for Kafka, RabbitMQ, and SQS. This lets us focus on building expertise and tooling around a single unified system.",
+      "Pulsar 的独特之处在于它同时支持流处理和队列用例，还支持丰富的功能集，使其成为我们架构中当前使用的许多其他分布式消息技术的可行替代方案。Pulsar 涵盖了我们对 Kafka、RabbitMQ 和 SQS 的所有用例。这让我们能够专注于围绕单一统一系统构建专业知识和工具。",
   },
   {
     author: "Weisheng Xie",
     company: "Orange Financial",
     text:
-      "Pulsar is a perfect choice for building our unified data processing stack. Together with a unified computing engine like Spark, Apache Pulsar is able to boost the efficiency of our risk-control decision deployment. Thus, we are able to provide merchants and consumers with safe, convenient, and efficient services.",
+      "Pulsar 是构建我们统一数据处理栈的完美选择。与像 Spark 这样的统一计算引擎一起，Apache Pulsar 能够提高我们风险控制决策部署的效率。因此，我们能够为商户和消费者提供安全、便捷和高效的服务。",
   },
   {
     author: "Kirill Merkushev",
     company: "Vivy",
     text:
-      "Among the features we considered were tiered storage, as we planned to have unlimited retention (for event sourcing that matters a lot), flexible subscription model (we use exclusive at the moment, however we want to try per-key subscription), authorization via different methods including certificates and JWT (JSON Web Token), and an easy way to get it up and running.",
+      "我们考虑的功能包括分层存储，因为我们计划拥有无限保留（对事件溯源非常重要），灵活的订阅模型（我们目前使用独占模式，但我们想尝试按键订阅），通过不同方法的授权，包括证书和 JWT（JSON Web Token），以及简单启动和运行的方式。",
   },
   {
     author: "Jowanza Joseph",
     company: "One Click Retail",
     text:
-      "Because of Pulsar’s unique combination of messaging and stream processing, we’ve been able to replace multiple systems with one solution that works seamlessly in our Kubernetes environment.",
+      "由于 Pulsar 独特的消息和流处理组合，我们能够用一个解决方案替换多个系统，该解决方案在我们的 Kubernetes 环境中无缝工作。",
   },
   {
     author: "Dongliang Jiang",
     company: "Appen China",
     text:
-      "Apache Pulsar plays a key role in our AI data platform as the data lake to connect all the business features and make each component decoupled.",
+      "Apache Pulsar 在我们的 AI 数据平台中扮演着关键角色，作为数据湖连接所有业务功能并使每个组件解耦。",
   },
   {
     author: "Hang Chen",
     company: "BIGO",
     text:
-      "The Apache Pulsar's layered architecture and new features, such as low latency with durability, horizontally scalable, multi-tenancy etc, help us solve a lot of problems in production. We have adopted Apache Pulsar to build our Message Processing System, especially in Real-Time ETL, short-form video recommendation and Real-Time Data report. ",
+      "Apache Pulsar 的分层架构和新功能，如具有持久性的低延迟、水平可扩展、多租户等，帮助我们在生产环境中解决了很多问题。我们采用 Apache Pulsar 构建消息处理系统，特别是在实时 ETL、短视频推荐和实时数据报告方面。",
   },
   {
     author: "Rocky Jin",
     company: "EMQ",
     text:
-      "Apache Pulsar provides native support for serverless functions where data is processed as soon as it arrives in a streaming fashion and gives flexible deployment options (thread, process, container). We need only focus on computation logic rather than dealing with complicated configuration or management, which helps us build a streaming platform faster and conveniently.",
+      "Apache Pulsar 为无服务器函数提供原生支持，数据以流式方式在到达时立即处理，并提供灵活的部署选项（线程、进程、容器）。我们只需要专注于计算逻辑，而不是处理复杂的配置或管理，这帮助我们更快更方便地构建流平台。",
   },
   {
     author: "Bin Liu",
     company: "Ksyun",
     text:
-      "With Pulsar, we can scale up partitions and merge partitions easily, and process millions of topics.",
+      "使用 Pulsar，我们可以轻松扩展分区和合并分区，并处理数百万个主题。",
   },
 ];
 

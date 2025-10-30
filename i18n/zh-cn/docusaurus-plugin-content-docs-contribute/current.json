@@ -1,0 +1,38 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.sidebarDevelopment.category.Getting started": {
+    "message": "Getting started",
+    "description": "The label for category Getting started in sidebar sidebarDevelopment"
+  },
+  "sidebar.sidebarDevelopment.category.Development": {
+    "message": "Development",
+    "description": "The label for category Development in sidebar sidebarDevelopment"
+  },
+  "sidebar.sidebarDevelopment.category.Testing and CI": {
+    "message": "Testing and CI",
+    "description": "The label for category Testing and CI in sidebar sidebarDevelopment"
+  },
+  "sidebar.sidebarDevelopment.category.Website": {
+    "message": "Website",
+    "description": "The label for category Website in sidebar sidebarDevelopment"
+  },
+  "sidebar.sidebarDevelopment.category.Documentation": {
+    "message": "Documentation",
+    "description": "The label for category Documentation in sidebar sidebarDevelopment"
+  },
+  "sidebar.sidebarDevelopment.category.Releases": {
+    "message": "Releases",
+    "description": "The label for category Releases in sidebar sidebarDevelopment"
+  },
+  "sidebar.sidebarDevelopment.category.Release process": {
+    "message": "Release process",
+    "description": "The label for category Release process in sidebar sidebarDevelopment"
+  },
+  "sidebar.sidebarDevelopment.category.Committers": {
+    "message": "Committers",
+    "description": "The label for category Committers in sidebar sidebarDevelopment"
+  }
+}

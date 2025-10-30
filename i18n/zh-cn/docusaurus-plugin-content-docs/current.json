@@ -1,0 +1,174 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.docsSidebar.category.Get Started": {
+    "message": "Get Started",
+    "description": "The label for category Get Started in sidebar docsSidebar"
+  },
+  "sidebar.docsSidebar.category.Concepts and Architecture": {
+    "message": "Concepts and Architecture",
+    "description": "The label for category Concepts and Architecture in sidebar docsSidebar"
+  },
+  "sidebar.docsSidebar.category.Broker load balancing": {
+    "message": "Broker load balancing",
+    "description": "The label for category Broker load balancing in sidebar docsSidebar"
+  },
+  "sidebar.docsSidebar.category.Pulsar Schema": {
+    "message": "Pulsar Schema",
+    "description": "The label for category Pulsar Schema in sidebar docsSidebar"
+  },
+  "sidebar.docsSidebar.category.Pulsar Functions": {
+    "message": "Pulsar Functions",
+    "description": "The label for category Pulsar Functions in sidebar docsSidebar"
+  },
+  "sidebar.docsSidebar.category.Set up function workers": {
+    "message": "Set up function workers",
+    "description": "The label for category Set up function workers in sidebar docsSidebar"
+  },
+  "sidebar.docsSidebar.category.Configure function runtime": {
+    "message": "Configure function runtime",
+    "description": "The label for category Configure function runtime in sidebar docsSidebar"
+  },
+  "sidebar.docsSidebar.category.How-to: Deploy": {
+    "message": "How-to: Deploy",
+    "description": "The label for category How-to: Deploy in sidebar docsSidebar"
+  },
+  "sidebar.docsSidebar.category.Deploy a function in cluster mode": {
+    "message": "Deploy a function in cluster mode",
+    "description": "The label for category Deploy a function in cluster mode in sidebar docsSidebar"
+  },
+  "sidebar.docsSidebar.category.How-to: Develop": {
+    "message": "How-to: Develop",
+    "description": "The label for category How-to: Develop in sidebar docsSidebar"
+  },
+  "sidebar.docsSidebar.category.How-to: Debug": {
+    "message": "How-to: Debug",
+    "description": "The label for category How-to: Debug in sidebar docsSidebar"
+  },
+  "sidebar.docsSidebar.category.How-to: Package": {
+    "message": "How-to: Package",
+    "description": "The label for category How-to: Package in sidebar docsSidebar"
+  },
+  "sidebar.docsSidebar.category.Pulsar IO": {
+    "message": "Pulsar IO",
+    "description": "The label for category Pulsar IO in sidebar docsSidebar"
+  },
+  "sidebar.docsSidebar.category.Tiered Storage": {
+    "message": "Tiered Storage",
+    "description": "The label for category Tiered Storage in sidebar docsSidebar"
+  },
+  "sidebar.docsSidebar.category.Transactions": {
+    "message": "Transactions",
+    "description": "The label for category Transactions in sidebar docsSidebar"
+  },
+  "sidebar.docsSidebar.category.Deployment": {
+    "message": "Deployment",
+    "description": "The label for category Deployment in sidebar docsSidebar"
+  },
+  "sidebar.docsSidebar.category.Kubernetes": {
+    "message": "Kubernetes",
+    "description": "The label for category Kubernetes in sidebar docsSidebar"
+  },
+  "sidebar.docsSidebar.category.Administration": {
+    "message": "Administration",
+    "description": "The label for category Administration in sidebar docsSidebar"
+  },
+  "sidebar.docsSidebar.category.Pulsar isolation": {
+    "message": "Pulsar isolation",
+    "description": "The label for category Pulsar isolation in sidebar docsSidebar"
+  },
+  "sidebar.docsSidebar.category.Observability": {
+    "message": "Observability",
+    "description": "The label for category Observability in sidebar docsSidebar"
+  },
+  "sidebar.docsSidebar.category.Security": {
+    "message": "Security",
+    "description": "The label for category Security in sidebar docsSidebar"
+  },
+  "sidebar.docsSidebar.category.Encryption": {
+    "message": "Encryption",
+    "description": "The label for category Encryption in sidebar docsSidebar"
+  },
+  "sidebar.docsSidebar.category.Authentication": {
+    "message": "Authentication",
+    "description": "The label for category Authentication in sidebar docsSidebar"
+  },
+  "sidebar.docsSidebar.category.Performance": {
+    "message": "Performance",
+    "description": "The label for category Performance in sidebar docsSidebar"
+  },
+  "sidebar.docsSidebar.category.Client Libraries": {
+    "message": "Client Libraries",
+    "description": "The label for category Client Libraries in sidebar docsSidebar"
+  },
+  "sidebar.docsSidebar.category.Get started": {
+    "message": "Get started",
+    "description": "The label for category Get started in sidebar docsSidebar"
+  },
+  "sidebar.docsSidebar.category.Java client": {
+    "message": "Java client",
+    "description": "The label for category Java client in sidebar docsSidebar"
+  },
+  "sidebar.docsSidebar.category.C++ client": {
+    "message": "C++ client",
+    "description": "The label for category C++ client in sidebar docsSidebar"
+  },
+  "sidebar.docsSidebar.category.Go client": {
+    "message": "Go client",
+    "description": "The label for category Go client in sidebar docsSidebar"
+  },
+  "sidebar.docsSidebar.category.Python client": {
+    "message": "Python client",
+    "description": "The label for category Python client in sidebar docsSidebar"
+  },
+  "sidebar.docsSidebar.category.Node.js client": {
+    "message": "Node.js client",
+    "description": "The label for category Node.js client in sidebar docsSidebar"
+  },
+  "sidebar.docsSidebar.category.C# client": {
+    "message": "C# client",
+    "description": "The label for category C# client in sidebar docsSidebar"
+  },
+  "sidebar.docsSidebar.category.Advanced use": {
+    "message": "Advanced use",
+    "description": "The label for category Advanced use in sidebar docsSidebar"
+  },
+  "sidebar.docsSidebar.category.Admin API": {
+    "message": "Admin API",
+    "description": "The label for category Admin API in sidebar docsSidebar"
+  },
+  "sidebar.docsSidebar.category.Features": {
+    "message": "Features",
+    "description": "The label for category Features in sidebar docsSidebar"
+  },
+  "sidebar.docsSidebar.category.Adaptors": {
+    "message": "Adaptors",
+    "description": "The label for category Adaptors in sidebar docsSidebar"
+  },
+  "sidebar.docsSidebar.category.Tutorials": {
+    "message": "Tutorials",
+    "description": "The label for category Tutorials in sidebar docsSidebar"
+  },
+  "sidebar.docsSidebar.category.Development": {
+    "message": "Development",
+    "description": "The label for category Development in sidebar docsSidebar"
+  },
+  "sidebar.docsSidebar.category.Reference": {
+    "message": "Reference",
+    "description": "The label for category Reference in sidebar docsSidebar"
+  },
+  "sidebar.docsSidebar.category.Pulsar APIs": {
+    "message": "Pulsar APIs",
+    "description": "The label for category Pulsar APIs in sidebar docsSidebar"
+  },
+  "sidebar.docsSidebar.link.Client Feature Matrix": {
+    "message": "Client Feature Matrix",
+    "description": "The label for link Client Feature Matrix in sidebar docsSidebar, linking to /client-feature-matrix/"
+  },
+  "sidebar.docsSidebar.link.Release notes": {
+    "message": "Release notes",
+    "description": "The label for link Release notes in sidebar docsSidebar, linking to /release-notes/"
+  }
+}

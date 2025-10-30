@@ -11,33 +11,33 @@ export type UseCase = {
 const useCases: UseCase[] = [
     {
         icon: "user",
-        title: "Company-wide messaging platform",
-        text: "<p>Companies tend to adopt several messaging technologies (e.g., Kafka, ActiveMQ, RabbitMQ, …), sometimes managed by several different teams in charge of their services. Some companies wish to consolidate all those technologies and switch to a company-wide messaging platform managed centrally while still giving enough self-service and flexibility for teams to use it on their own.</p><p>Pulsar enables that:<ul><li>It supports all messaging use cases: streaming, message queuing, and more.</li><li>Its multi-tenancy, granular access control, geo-replication, and K8s-ready features make it ideal to be a multi-tenant platform</li></ul></p><p>There are additional benefits to this consolidation:<ul><li>It simplifies operations, as the organization needs to learn one technology and maintain one system, serving multiple teams.</li><li>It facilitates integrations between teams and systems. Bridging microservices between their messaging system (e.g., Kafka) to another’s team system (e.g., RabbitMQ) is time-consuming and, in many cases, slows down velocity. Having all teams work in a single messaging platform makes it super easy to integrate their microservices.</li><li>All services running in the same platform enable creating a catalog of services using it, making it easier for discovery.</li></ul></p>",
-        smallText: "Companies tend to adopt several messaging technologies (e.g., Kafka, ActiveMQ, RabbitMQ, …), sometimes managed by several different teams in charge of their services.",
+        title: "企业级消息平台",
+        text: "<p>公司倾向于采用多种消息技术（如 Kafka、ActiveMQ、RabbitMQ 等），有时由不同的团队管理各自的服务。一些公司希望整合所有这些技术，切换到由中央管理的公司级消息平台，同时仍为团队提供足够的自助服务和灵活性。</p><p>Pulsar 实现了这一点：<ul><li>它支持所有消息用例：流处理、消息队列等。</li><li>其多租户、细粒度访问控制、地理复制和 K8s 就绪特性使其成为理想的多租户平台</li></ul></p><p>这种整合还有额外的好处：<ul><li>它简化了运营，因为组织只需要学习一种技术并维护一个系统，为多个团队服务。</li><li>它促进了团队和系统之间的集成。在消息系统（如 Kafka）和另一个团队的系统（如 RabbitMQ）之间桥接微服务非常耗时，在许多情况下会降低开发速度。让所有团队在单个消息平台上工作，使他们的微服务集成变得非常容易。</li><li>在同一平台上运行的所有服务能够创建使用该平台的服务目录，使发现更容易。</li></ul></p>",
+        smallText: "公司倾向于采用多种消息技术（如 Kafka、ActiveMQ、RabbitMQ 等），有时由不同的团队管理各自的服务。",
         docsLink: "concepts-overview/",
         caseLink: true
     },
     {
         icon: "check",
-        title: "Task Queues",
-        text: "<p>There are common use cases in many companies requiring task queue systems that enable submitting a task to run and ensuring it’s executed, including error handling. Generally, you need to limit the processing capacity dedicated to particular tasks and support distributing the tasks among a set of worker processes. Examples include video transcoding, generating image thumbnails, button clicks in the UI returning a response in less than 10ms but running in the background, and more.</p><p>Pulsar supports that natively through its Shared Subscription and individual acknowledgment. The Shared Subscription supports distributing messages out-of-order across many consumers, while individual acknowledgment enables a consumer to mark a specific message as done.</p><p>This feature is amplified by Pulsar's ability to scale horizontally, most notably: do it rapidly, since its design avoids data reshuffling, making newly created nodes available immediately to handle the load.</p>",
-        smallText: "There are common use cases in many companies requiring task queue systems that enable submitting a task to run and ensuring it’s executed, including error handling.",
+        title: "任务队列",
+        text: "<p>许多公司有常见的用例需要任务队列系统，能够提交任务运行并确保其执行，包括错误处理。通常，您需要限制专用于特定任务的处理能力，并支持在一组工作进程之间分配任务。示例包括视频转码、生成图像缩略图、UI 中的按钮点击在 10ms 内返回响应但在后台运行等。</p><p>Pulsar 通过其共享订阅和单独确认功能原生支持这一点。共享订阅支持在多个消费者之间乱序分发消息，而单独确认使消费者能够将特定消息标记为完成。</p><p>这一功能通过 Pulsar 的水平扩展能力得到增强，最显著的是：可以快速完成，因为其设计避免了数据重新分片，使新创建的节点立即可用于处理负载。</p>",
+        smallText: "许多公司有常见的用例需要任务队列系统，能够提交任务运行并确保其执行，包括错误处理。",
         docsLink: "cookbooks-message-queue/",
         caseLink: false
     },
     {
         icon: "arrow",
-        title: "Scalable RPC",
-        text: "<p>In a micro-services architecture, there is a need to communicate between services constantly. One way of doing it is direct API calls, which require<ul><li>A service discovery system, which registers new instances into a list of available instances for a service</li><li>Load balancing system, to load balance calls among the list of instances</li><li>Networking rules to define which defines which service can access which network</li><li>A central configuration system to share all those services addresses</li><li>Retry and circuit breaker mechanisms to handle failure to respond to requests</li></ul></p><p>Another option, powered by Apache Pulsar, is indirect API calls through topics and messages. Each service gets a topic shared by all instances of that service to load balance requests. Each request sender has its topic for receiving responses. Instance 1 of service A sends a message to the shared topic of service B, which in turn sends the response in a message to the topic associated with instance 1 of service A.</p><p>Other messaging systems can accomplish this option, but Pulsar offers several compelling features:<ul><li>If your system grows and you have 5k or even 50k instances, having a reply topic per instance gets either impossible or very expensive in other messaging systems. Many resort to multiplexing all service replies into several topics, forcing the instance to read and filter most messages, which makes it expensive.</li><li>Pulsar is horizontally scalable and can scale up in minutes in response to a massive influx of requests.</li></ul></p>",
-        smallText: "Scalable RPC, in the context of micro-services, uses topics for indirect API communication, simplifying load balancing and eliminating traditional networking complexities by using shared topics for each service to balance load and individual topics for response reception. This approach is highly scalable, efficiently supporting systems with thousands of instances.",
+        title: "可扩展 RPC",
+        text: "<p>在微服务架构中，服务之间需要不断通信。一种方法是直接 API 调用，这需要<ul><li>服务发现系统，将新实例注册到服务的可用实例列表中</li><li>负载均衡系统，在实例列表之间负载均衡调用</li><li>网络规则定义哪个服务可以访问哪个网络</li><li>中央配置系统共享所有这些服务地址</li><li>重试和断路器机制来处理无法响应请求的情况</li></ul></p><p>另一种选择，由 Apache Pulsar 驱动，是通过主题和消息进行间接 API 调用。每个服务获得一个由该服务的所有实例共享的主题来负载均衡请求。每个请求发送者有自己的主题用于接收响应。服务 A 的实例 1 向服务 B 的共享主题发送消息，服务 B 反过来将响应消息发送到与服务 A 的实例 1 关联的主题。</p><p>其他消息系统也可以实现这种选择，但 Pulsar 提供了几个引人注目的特性：<ul><li>如果您的系统增长并有 5k 甚至 50k 实例，在其他消息系统中，每个实例有一个回复主题变得不可能或非常昂贵。许多系统采用将所有服务回复复用到几个主题的方法，强制实例读取和过滤大部分消息，这使其成本高昂。</li><li>Pulsar 是水平可扩展的，可以在几分钟内扩展以应对大量请求涌入。</li></ul></p>",
+        smallText: "可扩展 RPC 在微服务环境中，使用主题进行间接 API 通信，通过为每个服务使用共享主题来平衡负载，为响应接收使用单独主题，简化了负载均衡并消除了传统的网络复杂性。这种方法高度可扩展，高效支持具有数千个实例的系统。",
         docsLink: "concepts-broker-load-balancing-benefits/#scalability",
         caseLink: false
     },
     {
         icon: "speech",
-        title: "Mission Critical Applications",
-        text: "<p>There are mission-critical applications that must have the highest guarantee of failure resiliency. Pulsar provides that uniquely by having all of the following in one system:<ul><li>Messages are replicated to several Bookkeeper nodes. Systems like RabbitMQ or ActiveMQ were not written with that feature in the original design. Most replicate in the background while returning success for the write.</li><li>Messages are guaranteed to be written to disk when an acknowledgment is sent back to the application writing the messages. In case of machine power-off, messages are not lost. Some systems prefer performance over resiliency without the ability to choose what’s best for your use case. Pulsar provides the option to choose.</li></ul></p><p>This is the case for applications like banking, payments, and orders. Those applications want to eliminate even the tiniest risk of having all nodes holding the replicas reboot and losing data in memory. Pulsar provides that requirement.</p>",
-        smallText: "There are mission-critical applications that must have the highest guarantee of failure resiliency. Pulsar provides that uniquely by having all of the following in one system:",
+        title: "关键任务应用程序",
+        text: "<p>有些关键任务应用程序必须具有最高级别的故障弹性保证。Pulsar 通过在一个系统中具备以下所有特性来独特地提供这一点：<ul><li>消息被复制到多个 BookKeeper 节点。像 RabbitMQ 或 ActiveMQ 这样的系统在原始设计中没有考虑这个特性。大多数在后台复制，同时为写入返回成功。</li><li>当确认发送回写入消息的应用程序时，消息保证已写入磁盘。在机器断电的情况下，消息不会丢失。一些系统更喜欢性能而不是弹性，无法选择最适合您的用例的方案。Pulsar 提供了选择的选项。</li></ul></p><p>这对于银行、支付和订单等应用程序来说是这种情况。这些应用程序希望消除所有保存副本的节点重新启动并丢失内存中数据的微小风险。Pulsar 满足了这一要求。</p>",
+        smallText: "有些关键任务应用程序必须具有最高级别的故障弹性保证。Pulsar 通过在一个系统中具备以下所有特性来独特地提供这一点：",
         docsLink: "security-overview/",
         caseLink: false
     },

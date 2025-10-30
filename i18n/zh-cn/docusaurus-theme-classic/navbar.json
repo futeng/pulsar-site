@@ -1,0 +1,102 @@
+{
+  "logo.alt": {
+    "message": "Apache Pulsar logo",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.快速开始": {
+    "message": "快速开始",
+    "description": "Navbar item with label 快速开始"
+  },
+  "item.label.文档": {
+    "message": "文档",
+    "description": "Navbar item with label 文档"
+  },
+  "item.label.特性": {
+    "message": "特性",
+    "description": "Navbar item with label 特性"
+  },
+  "item.label.用例": {
+    "message": "用例",
+    "description": "Navbar item with label 用例"
+  },
+  "item.label.社区": {
+    "message": "社区",
+    "description": "Navbar item with label 社区"
+  },
+  "item.label.学习": {
+    "message": "学习",
+    "description": "Navbar item with label 学习"
+  },
+  "item.label.下载": {
+    "message": "下载",
+    "description": "Navbar item with label 下载"
+  },
+  "item.label.概念": {
+    "message": "概念",
+    "description": "Navbar item with label 概念"
+  },
+  "item.label.快速入门": {
+    "message": "快速入门",
+    "description": "Navbar item with label 快速入门"
+  },
+  "item.label.生态系统": {
+    "message": "生态系统",
+    "description": "Navbar item with label 生态系统"
+  },
+  "item.label.欢迎": {
+    "message": "欢迎",
+    "description": "Navbar item with label 欢迎"
+  },
+  "item.label.讨论": {
+    "message": "讨论",
+    "description": "Navbar item with label 讨论"
+  },
+  "item.label.治理": {
+    "message": "治理",
+    "description": "Navbar item with label 治理"
+  },
+  "item.label.认识社区": {
+    "message": "认识社区",
+    "description": "Navbar item with label 认识社区"
+  },
+  "item.label.贡献": {
+    "message": "贡献",
+    "description": "Navbar item with label 贡献"
+  },
+  "item.label.贡献指南": {
+    "message": "贡献指南",
+    "description": "Navbar item with label 贡献指南"
+  },
+  "item.label.Wiki": {
+    "message": "Wiki",
+    "description": "Navbar item with label Wiki"
+  },
+  "item.label.问题追踪": {
+    "message": "问题追踪",
+    "description": "Navbar item with label 问题追踪"
+  },
+  "item.label.博客": {
+    "message": "博客",
+    "description": "Navbar item with label 博客"
+  },
+  "item.label.书籍": {
+    "message": "书籍",
+    "description": "Navbar item with label 书籍"
+  },
+  "item.label.案例研究": {
+    "message": "案例研究",
+    "description": "Navbar item with label 案例研究"
+  },
+  "item.label.文章": {
+    "message": "文章",
+    "description": "Navbar item with label 文章"
+  },
+  "item.label.演示文稿": {
+    "message": "演示文稿",
+    "description": "Navbar item with label 演示文稿"
+  },
+  "item.label.活动": {
+    "message": "活动",
+    "description": "Navbar item with label 活动"
+  }
+}

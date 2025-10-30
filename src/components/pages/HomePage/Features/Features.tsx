@@ -1,6 +1,7 @@
 import React from 'react';
 
 import featuresList from './featuresList';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 import s from './Features.module.css';
 import Slider from '../../../ui/Slider/Slider';
@@ -8,11 +9,25 @@ import ScreenTitle from '../ui/ScreenTitle/ScreenTitle';
 import Button from '@site/src/components/ui/Button/Button';
 
 const Features = () => {
+  const { i18n } = useDocusaurusContext();
+
+  const translations = {
+    'zh-cn': {
+      pulsarFeatures: "Pulsar 特性",
+      exploreMoreFeatures: "探索更多特性"
+    },
+    'en': {
+      pulsarFeatures: "Pulsar features",
+      exploreMoreFeatures: "Explore more features"
+    }
+  };
+
+  const t = (key) => translations[i18n.currentLocale][key] || translations['en'][key];
   return (
     <section className={s.block}>
       <div className={s.container}>
         <ScreenTitle>
-          Pulsar features
+          {t('pulsarFeatures')}
         </ScreenTitle>
 
         <div className={s.features_container}>
@@ -62,7 +77,7 @@ const Features = () => {
         </div>
       </div>
       <div className={s.ButtonContainer}>
-        <Button title='Explore more features' variant='action' href='/features' />
+        <Button title={t('exploreMoreFeatures')} variant='action' href='/features' />
       </div>
     </section>
   )

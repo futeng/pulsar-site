@@ -133,6 +133,20 @@ module.exports = async function createConfigAsync() {
     organizationName: "apache",
     projectName: "pulsar",
     trailingSlash: true,
+    i18n: {
+      defaultLocale: "zh-cn",
+      locales: ["zh-cn", "en"],
+      localeConfigs: {
+        "zh-cn": {
+          label: "简体中文",
+          direction: "ltr",
+        },
+        "en": {
+          label: "English",
+          direction: "ltr",
+        },
+      },
+    },
     markdown: {
       preprocessor: ({ filePath, fileContent }) => {
         return fileContent.replaceAll(/{@inject:([^}]+)}/g, (_, p1) => {
@@ -188,22 +202,22 @@ module.exports = async function createConfigAsync() {
           items: [
             {
               type: "dropdown",
-              label: "Get Started",
+              label: "快速开始",
               position: "left",
               items: [
                 {
                   to: `/docs/${latestVersion}/concepts-overview/`,
                   activeBaseRegex: `docs/(${versions.join('|')})/concepts-overview/$`,
-                  label: "Concepts",
+                  label: "概念",
                 },
                 {
                   to: `/docs/${latestVersion}/`,
                   activeBaseRegex: `docs/(${versions.join('|')})/$`,
-                  label: "Quickstart",
+                  label: "快速入门",
                 },
                 {
                   to: "/ecosystem/",
-                  label: "Ecosystem",
+                  label: "生态系统",
                 }
               ],
             },
@@ -211,62 +225,62 @@ module.exports = async function createConfigAsync() {
               type: "doc",
               docId: "about",
               position: "left",
-              label: "Docs",
+              label: "文档",
             },
             {
               to: "/features/",
               position: "left",
-              label: "Features",
+              label: "特性",
             },
             {
               to: "/use-cases/",
               position: "left",
-              label: "Use Cases",
+              label: "用例",
             },
             {
               type: "dropdown",
-              label: "Community",
+              label: "社区",
               position: "left",
               className: "community-dropdown",
               items: [
                 {
                   to: "/community",
                   activeBaseRegex: "^$",
-                  label: "Welcome",
+                  label: "欢迎",
                   className: "scroll-link scroll-welcome",
                   id: "scroll-welcome",
                 },
                 {
                   to: "/community#section-discussions",
                   activeBaseRegex: "^$",
-                  label: "Discussions",
+                  label: "讨论",
                   className: "scroll-link scroll-discussions",
                   id: "scroll-discussions",
                 },
                 {
                   to: "/community#section-governance",
                   activeBaseRegex: "^$",
-                  label: "Governance",
+                  label: "治理",
                   className: "scroll-link",
                   id: "scroll-governance",
                 },
                 {
                   to: "/community#section-community",
                   activeBaseRegex: "^$",
-                  label: "Meet the Community",
+                  label: "认识社区",
                   className: "scroll-link",
                   id: "scroll-community",
                 },
                 {
                   to: "/community#section-contribute",
                   activeBaseRegex: "^$",
-                  label: "Contribute",
+                  label: "贡献",
                   className: "scroll-link",
                   id: "scroll-contribute",
                 },
                 {
                   to: "/contribute/",
-                  label: "Contribution Guide",
+                  label: "贡献指南",
                 },
                 {
                   to: "https://github.com/apache/pulsar/wiki",
@@ -274,44 +288,44 @@ module.exports = async function createConfigAsync() {
                 },
                 {
                   to: "https://github.com/apache/pulsar/issues",
-                  label: "Issue Tracking",
+                  label: "问题追踪",
                 },
               ],
             },
             {
               type: "dropdown",
-              label: "Learn",
+              label: "学习",
               position: "left",
               items: [
                 {
                   to: "/blog",
-                  label: "Blog",
+                  label: "博客",
                 },
                 {
                   to: "/books",
-                  label: "Books",
+                  label: "书籍",
                 },
                 {
                   to: "/case-studies",
-                  label: "Case Studies",
+                  label: "案例研究",
                 },
                 {
                   to: "/articles",
-                  label: "Articles",
+                  label: "文章",
                 },
                 {
                   to: "/presentations",
-                  label: "Presentations",
+                  label: "演示文稿",
                 },
                 {
                   to: "/events",
-                  label: "Events",
+                  label: "活动",
                 },
               ],
             },
             {
               to: "/download",
-              label: "Download",
+              label: "下载",
               position: "right",
               className: "navbar_download_button",
             },

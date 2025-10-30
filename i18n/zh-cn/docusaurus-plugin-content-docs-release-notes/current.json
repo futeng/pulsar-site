@@ -1,0 +1,10 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.releaseNote.category.Clients Release Notes": {
+    "message": "Clients Release Notes",
+    "description": "The label for category Clients Release Notes in sidebar releaseNote"
+  }
+}
