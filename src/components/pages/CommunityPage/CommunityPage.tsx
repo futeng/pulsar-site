@@ -28,7 +28,22 @@ export default function CommunityPage(): JSX.Element {
       howToContribute: "如何贡献",
       discussionPlatforms: "讨论平台",
       projectGovernance: "项目治理",
-      meetTheCommunity: "认识社区"
+      meetTheCommunity: "认识社区",
+      communityConsistsOf: "Pulsar 社区由 PMC 成员、提交者和贡献者组成。",
+      completeListInfo: "有关完整和最新的列表，请参见",
+      pmcMembers: "PMC 成员",
+      committers: "提交者",
+      securityNotice: "请注意，安全相关问题或关切不应在公开渠道中报告。",
+      securityPolicyInfo: "请按照",
+      securityPolicy: "安全政策",
+      contactSecurityTeam: "中的说明联系",
+      asfSecurityTeam: "ASF 安全团队",
+      successfulProjectTitle: "一个成功的项目需要许多人扮演不同的角色。",
+      contributionText: "一些人编写代码或文档，而其他人作为测试员、提交补丁和建议同样很有价值。",
+      getInvolved: "今天就参与进来！",
+      contributionsAppreciated: "对项目的所有贡献都深表感谢。",
+      codeOfConduct: "阅读",
+      reportingGuidelines: "报告指南"
     },
     'en': {
       title: "Community",
@@ -40,7 +55,22 @@ export default function CommunityPage(): JSX.Element {
       howToContribute: "How to Contribute",
       discussionPlatforms: "Discussion Platforms",
       projectGovernance: "Project Governance",
-      meetTheCommunity: "Meet the Community"
+      meetTheCommunity: "Meet the Community",
+      communityConsistsOf: "Pulsar community consists of PMC members, committers and contributors.",
+      completeListInfo: "For the complete and up-to-date list, see",
+      pmcMembers: "PMC members",
+      committers: "Committers",
+      securityNotice: "Please notice that security-related issues or concerns should not be reported in public channels.",
+      securityPolicyInfo: "Please follow the instructions in the",
+      securityPolicy: "Security Policy",
+      contactSecurityTeam: "to contact the",
+      asfSecurityTeam: "ASF Security Team",
+      successfulProjectTitle: "A successful project requires many people to play many roles.",
+      contributionText: "Some write code or documentation, while others are valuable as testers, submitting patches, and suggestions.",
+      getInvolved: "Get involved today!",
+      contributionsAppreciated: "All contributions to the project are greatly appreciated.",
+      codeOfConduct: "Read the",
+      reportingGuidelines: "Reporting Guidelines"
     }
   };
 
@@ -117,18 +147,17 @@ export default function CommunityPage(): JSX.Element {
           <div className={s.AfterCommunitySlider}>
             <div>
               <h3>
-                A successful project requires many people to play many roles.
+                {t('successfulProjectTitle')}
               </h3>
             </div>
             <div>
               <p className={s.SmallParagraph}>
-                Some write code or documentation, while others are valuable as
-                testers, submitting patches, and suggestions.<br />
-                Get involved today!<br />
-                All contributions to the project are greatly appreciated.
+                {t('contributionText')}<br />
+                {t('getInvolved')}<br />
+                {t('contributionsAppreciated')}
               </p>
               <p className={s.SmallParagraphTop}>
-                Read the <a href="https://www.apache.org/foundation/policies/conduct" className="secondary-cta" target="_blank" >Apache Code of Conduct</a> and <a href="https://www.apache.org/foundation/policies/conduct#reporting-guidelines" className="secondary-cta" target="_blank" >Reporting Guidelines</a>.
+                {t('codeOfConduct')} <a href="https://www.apache.org/foundation/policies/conduct" className="secondary-cta" target="_blank" >Apache Code of Conduct</a> 和 <a href="https://www.apache.org/foundation/policies/conduct#reporting-guidelines" className="secondary-cta" target="_blank" >{t('reportingGuidelines')}</a>。
               </p>
             </div>
           </div>
@@ -140,8 +169,8 @@ export default function CommunityPage(): JSX.Element {
         <div className={s.CommunityContent}>
           <Section title={t('discussionPlatforms')} anchor="section-discussions">
             <p>
-              Please notice that security-related issues or concerns should not be reported in public channels.<br />
-              Please follow the instructions in the <a href={`${useBaseUrl("security")}#security-policy`}>Security Policy</a> to contact the <a href="https://www.apache.org/security/">ASF Security Team</a>.<br />
+              {t('securityNotice')}<br />
+              {t('securityPolicyInfo')} <a href={`${useBaseUrl("security")}#security-policy`}>{t('securityPolicy')}</a> {t('contactSecurityTeam')} <a href="https://www.apache.org/security/">{t('asfSecurityTeam')}</a>.<br />
               <br />
             </p>
             <DiscussionPlatforms />
@@ -173,13 +202,13 @@ export default function CommunityPage(): JSX.Element {
               {() => (
                 <>
                   <p className={s.CommunityMembersBig}>
-                    Pulsar community consists of PMC members, committers and contributors.
+                    {t('communityConsistsOf')}
                   </p>
                   <p className={s.CommunityMembersSmall}>
-                    For the complete and up-to-date list, see <a href="https://projects.apache.org/committee.html?pulsar" target="_blank" >Apache Pulsar Committee</a>.
+                    {t('completeListInfo')} <a href="https://projects.apache.org/committee.html?pulsar" target="_blank" >Apache Pulsar Committee</a>.
                   </p>
                   <br />
-                  <h4>{pmcMembers.length} PMC members</h4>
+                  <h4>{pmcMembers.length} {t('pmcMembers')}</h4>
                   <div>
                     <div className={s.CommunityMembersDesktop}>
                       {(pmcMembers || []).map((member) => (
@@ -203,7 +232,7 @@ export default function CommunityPage(): JSX.Element {
                       </div>
                     </div>
                   </div>
-                  <h4>{committers.length} Committers</h4>
+                  <h4>{committers.length} {t('committers')}</h4>
                   <div>
                     <div className={s.CommunityMembersDesktop}>
                       {(committers || []).map((member, i) => (
