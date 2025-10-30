@@ -48,7 +48,7 @@ BookKeeper 需要知道在哪里存储 ledger 元数据，以便在不同机架�
 较旧的设置没有 **metadataServiceUri**。
 而是使用
 
-| zkServers=zk1:2181,zk2:2181,zk3:2181<br>zkLedgersRootPath=/ledgers |
+| zkServers=zk1:2181,zk2:2181,zk3:2181<br />zkLedgersRootPath=/ledgers |
 | :---- |
 
 BookKeeper 为了**向后兼容**仍然支持这种方式，
@@ -69,13 +69,13 @@ BookKeeper 为了**向后兼容**仍然支持这种方式，
 
 根据我们的 **OSS Pulsar 4.x 测试**，**正确且有效的设置**是：
 
-| metadataServiceUri=metadata-store:zk:pulsar-mini-zookeeper:2181<br>zkLedgersRootPath=/ledgers<br>zkServers= |
+| metadataServiceUri=metadata-store:zk:pulsar-mini-zookeeper:2181<br />zkLedgersRootPath=/ledgers<br />zkServers= |
 | :---- |
 
 * 在 Pulsar 3.x 和 4.x 中与机架感知配合良好工作。
 * 在大多数 Pulsar 3.x 和 4.x 部署中，正确的元数据驱动程序已经启用，但如果需要，设置：
 
-| -Dbookkeeper.metadata.client.drivers=org.apache.pulsar.metadata.bookkeeper.PulsarMetadataClientDriver<br>-Dbookkeeper.metadata.bookie.drivers=org.apache.pulsar.metadata.bookkeeper.PulsarMetadataBookieDriver |
+| -Dbookkeeper.metadata.client.drivers=org.apache.pulsar.metadata.bookkeeper.PulsarMetadataClientDriver<br />-Dbookkeeper.metadata.bookie.drivers=org.apache.pulsar.metadata.bookkeeper.PulsarMetadataBookieDriver |
 | :---- |
 
 
