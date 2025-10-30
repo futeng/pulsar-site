@@ -456,7 +456,7 @@ Consumer<byte[]> consumer = pulsarClient.newConsumer()
 
 启用消息分块后，当消息大小超过允许的最大载荷大小（broker 的`maxMessageSize`参数）时，消息传递的工作流程如下：
 1. 生产者将原始消息拆分为分块消息，并分别按顺序将它们与分块元数据一起发布到 broker。
-2. broker 以与普通消息相同的方式将分块消息存储在一个管理的Ledger中，并使用`chunkedMessageRate`参数记录主题上的分块消息速率。
+2. broker 以与普通消息相同的方式将分块消息存储在一个ManagedLedger中，并使用`chunkedMessageRate`参数记录主题上的分块消息速率。
 3. 消费者缓冲分块消息，并在接收到消息的所有分块时将它们聚合到接收队列中。
 4. 客户端从接收队列消费聚合的消息。
 
@@ -469,13 +469,13 @@ Consumer<byte[]> consumer = pulsarClient.newConsumer()
 
 #### 使用一个有序消费者处理连续的分块消息
 
-下图显示了一个主题，其中一个生产者发布大载荷消息的分块消息以及常规非分块消息。生产者以标记为 M1-C1、M1-C2 和 M1-C3 的三个分块发布消息 M1。broker 将所有三个分块消息存储在[管理的Ledger](concepts-architecture-overview.md#managed-ledgers)中，并以相同顺序将它们分派给有序的（独占/故障转移）消费者。消费者在内存中缓冲所有分块消息，直到接收到所有分块消息，将它们聚合成一条消息，然后将原始消息 M1 交给客户端。
+下图显示了一个主题，其中一个生产者发布大载荷消息的分块消息以及常规非分块消息。生产者以标记为 M1-C1、M1-C2 和 M1-C3 的三个分块发布消息 M1。broker 将所有三个分块消息存储在[ManagedLedger](concepts-architecture-overview.md#managed-ledgers)中，并以相同顺序将它们分派给有序的（独占/故障转移）消费者。消费者在内存中缓冲所有分块消息，直到接收到所有分块消息，将它们聚合成一条消息，然后将原始消息 M1 交给客户端。
 
 ![Pulsar 中的连续分块消息](/assets/chunking-01.png)
 
 #### 使用一个有序消费者处理交织的分块消息
 
-当多个生产者向单个主题发布分块消息时，broker 将来自不同生产者的所有分块消息存储在同一个[管理的Ledger](concepts-architecture-overview.md#managed-ledgers)中。管理的Ledger中的分块消息可能相互交织。如下所示，生产者 1 以三个分块 M1-C1、M1-C2 和 M1-C3 发布消息 M1。生产者 2 以三个分块 M2-C1、M2-C2 和 M2-C3 发布消息 M2。特定消息的所有分块消息仍然是有序的，但在管理的Ledger中可能不是连续的。
+当多个生产者向单个主题发布分块消息时，broker 将来自不同生产者的所有分块消息存储在同一个[ManagedLedger](concepts-architecture-overview.md#managed-ledgers)中。ManagedLedger中的分块消息可能相互交织。如下所示，生产者 1 以三个分块 M1-C1、M1-C2 和 M1-C3 发布消息 M1。生产者 2 以三个分块 M2-C1、M2-C2 和 M2-C3 发布消息 M2。特定消息的所有分块消息仍然是有序的，但在ManagedLedger中可能不是连续的。
 
 ![Pulsar 中的交织分块消息](/assets/chunking-02.png)
 

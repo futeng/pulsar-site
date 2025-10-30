@@ -26,7 +26,7 @@ Pulsar 消息代理是一个无状态组件，主要负责运行另外两个组�
 * 一个 HTTP 服务器，暴露 {@inject: rest:REST:/} API，用于管理任务和生产者和消费者的[主题查找](concepts-clients.md#client-setup-phase)。生产者连接到代理以发布消息，消费者连接到代理以消费消息。
 * 一个调度器，它是一个异步 TCP 服务器，使用自定义[二进制协议](developing-binary-protocol.md)用于所有数据传输
 
-消息通常从[管理的Ledger](#managed-ledgers)缓存中分发出以获得性能，*除非*积压超过缓存大小。如果积压对缓存来说过大，代理将开始从 BookKeeper 读取条目。
+消息通常从[ManagedLedger](#managed-ledgers)缓存中分发出以获得性能，*除非*积压超过缓存大小。如果积压对缓存来说过大，代理将开始从 BookKeeper 读取条目。
 
 最后，为了支持全局主题上的地理复制，代理管理复制器，这些复制器跟踪在本地区域发布的条目，并使用 Pulsar [Java 客户端库](client-libraries-java.md) 将它们重新发布到远程区域。
 
@@ -130,11 +130,11 @@ Ledger是一个仅追加的数据结构，具有单一写入者，分配给多�
 
 Bookkeeper 的主要优势在于它保证在故障存在的情况下Ledger的读取一致性。由于Ledger只能由单个进程写入，该进程可以非常有效地自由追加条目，而无需获得共识。故障后，Ledger将经历恢复过程，该过程将最终确定Ledger的状态并建立哪个条目最后提交到日志。在那之后，保证Ledger的所有读者看到完全相同的内容。
 
-#### 管理的Ledger
+#### ManagedLedger
 
-鉴于 Bookkeeper Ledger提供单一日志抽象，在Ledger之上开发了一个名为*管理的Ledger*的库，代表单个主题的存储层。管理的Ledger表示消息流的抽象，具有单一写入者在流末尾不断追加，以及多个消费流的游标，每个游标都有自己的关联位置。
+鉴于 Bookkeeper Ledger提供单一日志抽象，在Ledger之上开发了一个名为*ManagedLedger*的库，代表单个主题的存储层。ManagedLedger表示消息流的抽象，具有单一写入者在流末尾不断追加，以及多个消费流的游标，每个游标都有自己的关联位置。
 
-在内部，单一管理的Ledger使用多个 BookKeeper Ledger来存储数据。拥有多个Ledger有两个原因：
+在内部，单一ManagedLedger使用多个 BookKeeper Ledger来存储数据。拥有多个Ledger有两个原因：
 
 1. 故障后，Ledger不再可写，需要创建新的Ledger。
 2. 当所有游标都消费了Ledger包含的消息时，可以删除Ledger。这允许Ledger的定期滚动。
