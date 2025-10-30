@@ -59,7 +59,9 @@ Pulsar 改进提案（PIP）有自己的[工作流](https://github.com/apache/pu
 * 如果一个增强 ticket 停滞超过一年且似乎没有人在处理，您可以评论"Closing as stale and no one worked on it. Please open a new issue if you volunteer to do it."来关闭 issue。
 * 如果用户问题在线程中得到回答，您可以评论"Closing as answered"来关闭 issue；否则，您可以[将 issue 转换为讨论](https://docs.github.com/en/discussions/managing-discussions-for-your-community/managing-discussions#transferring-a-discussion)在问答类别下。
 * 如果一个开放的 issue 已经在 master 上解决或与另一个 issue 重复，您可以直接用这些解决方案关闭 issue。
-* 由于历史原因，一些 issue 是关于多语言客户端（C++、Go、Python）或其他已移出到单独仓库的组件。您可以[将 issue 转移](https://docs.github.com/en/issues/tracking-your-work-with-issues/transferring-an-issue-to-another-repository)到相应的仓库，或者评论"Closing as stale. The development of {the specific module} is permanently moved to {the separate repository}. Please open a new issue there if it's still relevant."来关闭。
+* 由于历史原因，一些 issue 是关于多语言客户端（C++、Go、Python）或其他已移出到单独仓库的组件。
+  您可以[将 issue 转移](https://docs.github.com/en/issues/tracking-your-work-with-issues/transferring-an-issue-to-another-repository)到相应的仓库，
+  或者评论"Closing as stale. The development of the specific module is permanently moved to the separate repository. Please open a new issue there if it's still relevant."来关闭。
 
 ### 重新评估已关闭的 Issues
 
