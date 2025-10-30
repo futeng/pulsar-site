@@ -16,7 +16,7 @@ Pulsar 的主题压缩功能：
 * 允许更快地"倒带"主题日志
 * 仅适用于[持久主题](concepts-architecture-overview.md#persistent-storage)
 * 当积压达到一定大小时自动触发，或可以通过命令行手动触发。参见[主题压缩 cookbook](cookbooks-compaction.md)
-* 在概念和操作上与[保留和过期](concepts-messaging.md#message-retention-and-expiry)不同。但是，主题压缩*确实*尊重保留。如果保留已从主题的消息积压中删除消息，该消息也将无法从压缩的主题账本中读取。
+* 在概念和操作上与[保留和过期](concepts-messaging.md#message-retention-and-expiry)不同。但是，主题压缩*确实*尊重保留。如果保留已从主题的消息积压中删除消息，该消息也将无法从压缩的主题Ledger中读取。
 
 > #### 主题压缩示例：股票行情
 > 压缩的 Pulsar 主题的示例用例是股票行情主题。在股票行情主题上，每条消息都带有购买股票的时间戳美元价值（消息键保存股票代码，例如`AAPL`或`GOOG`）。对于股票行情，你可能只关心股票的最新值，对历史数据不感兴趣（即你不需要构建每个键的主题消息序列的完整图像）。在这种情况下，压缩将非常有益，因为它将使消费者不需要通过被遮蔽的消息倒带。

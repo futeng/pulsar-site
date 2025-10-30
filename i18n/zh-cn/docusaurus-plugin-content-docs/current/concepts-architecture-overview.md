@@ -26,7 +26,7 @@ Pulsar 消息代理是一个无状态组件，主要负责运行另外两个组�
 * 一个 HTTP 服务器，暴露 {@inject: rest:REST:/} API，用于管理任务和生产者和消费者的[主题查找](concepts-clients.md#client-setup-phase)。生产者连接到代理以发布消息，消费者连接到代理以消费消息。
 * 一个调度器，它是一个异步 TCP 服务器，使用自定义[二进制协议](developing-binary-protocol.md)用于所有数据传输
 
-消息通常从[管理的账本](#managed-ledgers)缓存中分发出以获得性能，*除非*积压超过缓存大小。如果积压对缓存来说过大，代理将开始从 BookKeeper 读取条目。
+消息通常从[管理的Ledger](#managed-ledgers)缓存中分发出以获得性能，*除非*积压超过缓存大小。如果积压对缓存来说过大，代理将开始从 BookKeeper 读取条目。
 
 最后，为了支持全局主题上的地理复制，代理管理复制器，这些复制器跟踪在本地区域发布的条目，并使用 Pulsar [Java 客户端库](client-libraries-java.md) 将它们重新发布到远程区域。
 
@@ -80,7 +80,7 @@ Pulsar 元数据存储可以部署在单独的集群上或与现有基础设施�
 在 Pulsar 实例中：
 
 * 配置存储仲裁存储租户、命名空间和其他需要全局一致的实体的配置。
-* 每个集群都有自己的本地 ZooKeeper 集合，存储特定于集群的配置和协调，例如哪些代理负责哪些主题以及所有权元数据、代理负载报告、BookKeeper 账本元数据等等。
+* 每个集群都有自己的本地 ZooKeeper 集合，存储特定于集群的配置和协调，例如哪些代理负责哪些主题以及所有权元数据、代理负载报告、BookKeeper Ledger元数据等等。
 
 ## 配置存储
 
@@ -96,12 +96,12 @@ Pulsar 为应用程序提供有保证的消息传递。如果消息成功到达 
 
 Pulsar 使用一个名为 [Apache BookKeeper](http://bookkeeper.apache.org/) 的系统进行持久消息存储。BookKeeper 是一个分布式[预写日志](https://en.wikipedia.org/wiki/Write-ahead_logging) (WAL) 系统，为 Pulsar 提供了几个关键优势：
 
-* 它使 Pulsar 能够利用许多独立的日志，称为[账本](#ledgers)。可以为主题创建多个账本。
+* 它使 Pulsar 能够利用许多独立的日志，称为[Ledger](#ledgers)。可以为主题创建多个Ledger。
 * 它为处理条目复制的顺序数据提供非常高效的存储。
-* 它保证在各种系统故障存在的情况下账本的读取一致性。
+* 它保证在各种系统故障存在的情况下Ledger的读取一致性。
 * 它在 bookies 之间提供均匀的 I/O 分布。
 * 它在容量和吞吐量方面都是水平可扩展的。可以通过向集群添加更多 bookies 来立即增加容量。
-* Bookies 被设计为处理数千个具有并发读写操作的账本。通过使用多个磁盘设备---一个用于日志，另一个用于一般存储---bookies 可以将读取操作的影响与正在进行的写入操作的延迟隔离开来。
+* Bookies 被设计为处理数千个具有并发读写操作的Ledger。通过使用多个磁盘设备---一个用于日志，另一个用于一般存储---bookies 可以将读取操作的影响与正在进行的写入操作的延迟隔离开来。
 
 除了消息数据，*游标*也被持久存储在 BookKeeper 中。游标是[消费者](concepts-clients.md#consumer)的[订阅](concepts-messaging.md#subscriptions)位置。BookKeeper 使 Pulsar 能够以可扩展的方式存储消费者位置。
 
@@ -118,30 +118,30 @@ persistent://my-tenant/my-namespace/my-topic
 ![Pulsar 集群中的代理和 bookies](/assets/broker-bookie.png)
 
 
-### 账本
+### Ledger
 
-账本是一个仅追加的数据结构，具有单一写入者，分配给多个 BookKeeper 存储节点或 bookies。账本条目被复制到多个 bookies。账本本身具有非常简单的语义：
+Ledger是一个仅追加的数据结构，具有单一写入者，分配给多个 BookKeeper 存储节点或 bookies。Ledger条目被复制到多个 bookies。Ledger本身具有非常简单的语义：
 
-* Pulsar 代理可以创建账本，向账本追加条目，并关闭账本。
-* 账本关闭后---无论是显式还是因为写入者进程崩溃---它只能以只读模式打开。
-* 最后，当账本中的条目不再需要时，整个账本可以从系统中删除（跨所有 bookies）。
+* Pulsar 代理可以创建Ledger，向Ledger追加条目，并关闭Ledger。
+* Ledger关闭后---无论是显式还是因为写入者进程崩溃---它只能以只读模式打开。
+* 最后，当Ledger中的条目不再需要时，整个Ledger可以从系统中删除（跨所有 bookies）。
 
-#### 账本读取一致性
+#### Ledger读取一致性
 
-Bookkeeper 的主要优势在于它保证在故障存在的情况下账本的读取一致性。由于账本只能由单个进程写入，该进程可以非常有效地自由追加条目，而无需获得共识。故障后，账本将经历恢复过程，该过程将最终确定账本的状态并建立哪个条目最后提交到日志。在那之后，保证账本的所有读者看到完全相同的内容。
+Bookkeeper 的主要优势在于它保证在故障存在的情况下Ledger的读取一致性。由于Ledger只能由单个进程写入，该进程可以非常有效地自由追加条目，而无需获得共识。故障后，Ledger将经历恢复过程，该过程将最终确定Ledger的状态并建立哪个条目最后提交到日志。在那之后，保证Ledger的所有读者看到完全相同的内容。
 
-#### 管理的账本
+#### 管理的Ledger
 
-鉴于 Bookkeeper 账本提供单一日志抽象，在账本之上开发了一个名为*管理的账本*的库，代表单个主题的存储层。管理的账本表示消息流的抽象，具有单一写入者在流末尾不断追加，以及多个消费流的游标，每个游标都有自己的关联位置。
+鉴于 Bookkeeper Ledger提供单一日志抽象，在Ledger之上开发了一个名为*管理的Ledger*的库，代表单个主题的存储层。管理的Ledger表示消息流的抽象，具有单一写入者在流末尾不断追加，以及多个消费流的游标，每个游标都有自己的关联位置。
 
-在内部，单一管理的账本使用多个 BookKeeper 账本来存储数据。拥有多个账本有两个原因：
+在内部，单一管理的Ledger使用多个 BookKeeper Ledger来存储数据。拥有多个Ledger有两个原因：
 
-1. 故障后，账本不再可写，需要创建新的账本。
-2. 当所有游标都消费了账本包含的消息时，可以删除账本。这允许账本的定期滚动。
+1. 故障后，Ledger不再可写，需要创建新的Ledger。
+2. 当所有游标都消费了Ledger包含的消息时，可以删除Ledger。这允许Ledger的定期滚动。
 
 ### 日志存储
 
-在 BookKeeper 中，*日志*文件包含 BookKeeper 事务日志。在对[账本](#ledgers)进行更新之前，bookie 需要确保描述更新的事务被写入持久（非易失性）存储。一旦 bookie 启动或较旧的日志文件达到日志文件大小阈值（使用 [`journalMaxSizeMB`](reference-configuration.md#bookkeeper) 参数配置），就会创建新的日志文件。
+在 BookKeeper 中，*日志*文件包含 BookKeeper 事务日志。在对[Ledger](#ledgers)进行更新之前，bookie 需要确保描述更新的事务被写入持久（非易失性）存储。一旦 bookie 启动或较旧的日志文件达到日志文件大小阈值（使用 [`journalMaxSizeMB`](reference-configuration.md#bookkeeper) 参数配置），就会创建新的日志文件。
 
 ## Pulsar 代理
 
