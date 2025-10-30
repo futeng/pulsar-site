@@ -1,5 +1,6 @@
 import React, { useMemo } from "react";
 import Layout from "@theme/Layout";
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import s from "./CommunityPage.module.css";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import team from "@site/data/team";
@@ -14,6 +15,37 @@ import Button from "@site/src/components/ui/Button/Button";
 import _ from 'lodash'
 
 export default function CommunityPage(): JSX.Element {
+  const { i18n } = useDocusaurusContext();
+
+  const translations = {
+    'zh-cn': {
+      title: "社区",
+      description: "了解使用 Apache Pulsar 的基础知识",
+      welcomeToPulsarCommunity: "欢迎来到 Pulsar 社区",
+      welcomeParagraph: "Apache Pulsar 社区包括来自世界各地的开发和使用消息和流处理平台进行实时工作负载的人员。我们欢迎任何对分布式系统充满热情的人做出贡献。",
+      aboutTheCommunity: "关于社区",
+      aboutParagraph1: "Pulsar 社区由项目管理委员会（PMC）成员、提交者和贡献者组成。提交者可以直接访问项目源代码并积极发展代码库。贡献者通过提交补丁和供提交者审查的建议来改进项目。项目的提交者和贡献者数量是无限的。",
+      howToContribute: "如何贡献",
+      discussionPlatforms: "讨论平台",
+      projectGovernance: "项目治理",
+      meetTheCommunity: "认识社区"
+    },
+    'en': {
+      title: "Community",
+      description: "Learn about the basics of using Apache Pulsar",
+      welcomeToPulsarCommunity: "Welcome to the Pulsar Community",
+      welcomeParagraph: "The Apache Pulsar community includes people from around the globe who are developing and using the messaging and streaming platform for real-time workloads. We welcome contributions from anyone with a passion for distributed systems.",
+      aboutTheCommunity: "About the Community",
+      aboutParagraph1: "The Pulsar community is composed of members of the Project Management Committee (PMC), committers, and contributors. Committers have direct access to the source of a project and actively evolve the codebase. Contributors improve the project through submission of patches and suggestions to be reviewed by the committers. The number of committers and contributors to the project is unbounded.",
+      howToContribute: "How to Contribute",
+      discussionPlatforms: "Discussion Platforms",
+      projectGovernance: "Project Governance",
+      meetTheCommunity: "Meet the Community"
+    }
+  };
+
+  const t = (key) => translations[i18n.currentLocale][key] || translations['en'][key];
+
   // Shuffle the team members so that the order is different each time the page is loaded
   const pmcMembers = useMemo(() => _.shuffle(team.pmc), [team.pmc]);
   const committers = useMemo(() => _.shuffle(team.committers), [team.committers]);
@@ -22,32 +54,23 @@ export default function CommunityPage(): JSX.Element {
   const teamCtrsSets = useMemo(() => _.chunk(committers, 5), [committers]);
 
   return (
-    <Layout title={"Community"} description={"Learn about the basics of using Apache Pulsar"} wrapperClassName="LandingPage">
+    <Layout title={t('title')} description={t('description')} wrapperClassName="LandingPage">
       <section className={s.CommunityHeader}>
         <div className={s.CommunityContent}>
-          <h1>Welcome to the Pulsar Community</h1>
+          <h1>{t('welcomeToPulsarCommunity')}</h1>
           <p className={s.Paragraph}>
-            The Apache Pulsar community includes people from around the
-            globe who are developing and using the messaging and streaming
-            platform for real-time workloads. We welcome contributions
-            from anyone with a passion for distributed systems.
+            {t('welcomeParagraph')}
           </p>
         </div>
       </section>
 
       <section className={s.CommunityAbout}>
         <div className={s.CommunityContent}>
-          <h2>About the Community</h2>
+          <h2>{t('aboutTheCommunity')}</h2>
 
           <div>
             <p className={s.SmallParagraph}>
-              The Pulsar community is composed of members of the Project
-              Management Committee (PMC), committers, and contributors.
-              Committers have direct access to the source of a project and
-              actively evolve the codebase. Contributors improve the project
-              through submission of patches and suggestions to be reviewed
-              by the committers. The number of committers and contributors
-              to the project is unbounded.
+              {t('aboutParagraph1')}
             </p>
 
             <div className={s.Slider}>
@@ -115,7 +138,7 @@ export default function CommunityPage(): JSX.Element {
       <section className={s.CommunityDiscussions}>
         <div className={s.CommunityDiscussionsBlur} />
         <div className={s.CommunityContent}>
-          <Section title="Discussions" anchor="section-discussions">
+          <Section title={t('discussionPlatforms')} anchor="section-discussions">
             <p>
               Please notice that security-related issues or concerns should not be reported in public channels.<br />
               Please follow the instructions in the <a href={`${useBaseUrl("security")}#security-policy`}>Security Policy</a> to contact the <a href="https://www.apache.org/security/">ASF Security Team</a>.<br />
@@ -128,7 +151,7 @@ export default function CommunityPage(): JSX.Element {
 
       <div className={s.CommunityContribute}>
         <div className={s.CommunityContent}>
-          <Section title="How to Contribute" anchor="section-contribute">
+          <Section title={t('howToContribute')} anchor="section-contribute">
             <HowToContribute />
           </Section>
         </div>
@@ -137,7 +160,7 @@ export default function CommunityPage(): JSX.Element {
 
       <div className={s.CommunityProjectGovernance}>
         <div className={s.CommunityContent}>
-          <Section title="Project Governance" anchor="section-governance">
+          <Section title={t('projectGovernance')} anchor="section-governance">
             <ProjectGovernance />
           </Section>
         </div>
@@ -145,7 +168,7 @@ export default function CommunityPage(): JSX.Element {
 
       <div className={s.CommunityMembers}>
         <div className={s.CommunityContent}>
-          <Section anchor="section-community" title="Meet the Community">
+          <Section anchor="section-community" title={t('meetTheCommunity')}>
             <BrowserOnly>
               {() => (
                 <>
