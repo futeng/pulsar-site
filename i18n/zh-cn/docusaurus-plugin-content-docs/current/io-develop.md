@@ -72,14 +72,14 @@ Pulsar 连接器有两种类型：
      |变量|必需|描述
      |---|---|---
      `TopicName`|否|记录来源的 Pulsar topic 名称。
-     `Key`|否| 消息可以选择性地用键标记。<br /><br>有关更多信息，请参阅 [路由模式](concepts-messaging.md#routing-modes)。|
+     `Key`|否| 消息可以选择性地用键标记。<br /><br />有关更多信息，请参阅 [路由模式](concepts-messaging.md#routing-modes)。|
      `Value`|是|记录的实际数据。
      `EventTime`|否|来自源的记录的事件时间。
      `PartitionId`|否| 如果记录来自分区源，它返回其 `PartitionId`。<br /><br />`PartitionId` 被 Pulsar IO 运行时用作唯一标识符的一部分，以去重消息并实现精确一次处理保证。
      `RecordSequence`|否|如果记录来自顺序源，它返回其 `RecordSequence`。<br /><br />`RecordSequence` 被 Pulsar IO 运行时用作唯一标识符的一部分，以去重消息并实现精确一次处理保证。
      `Properties` |否| 如果记录携带用户定义的属性，它返回这些属性。
      `DestinationTopic`|否|消息应写入的 topic。
-     `Message`|否|一个携带用户发送数据的类。<br /><br>有关更多信息，请参阅 [Message.java](https://github.com/apache/pulsar/blob/master/pulsar-client-api/src/main/java/org/apache/pulsar/client/api/Message.java)。|
+     `Message`|否|一个携带用户发送数据的类。<br /><br />有关更多信息，请参阅 [Message.java](https://github.com/apache/pulsar/blob/master/pulsar-client-api/src/main/java/org/apache/pulsar/client/api/Message.java)。|
 
     * {@inject: github:Record:/pulsar-functions/api-java/src/main/java/org/apache/pulsar/functions/api/Record.java} 应提供以下方法：
 
