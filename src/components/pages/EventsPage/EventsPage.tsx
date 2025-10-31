@@ -6,26 +6,44 @@ import Page from "@site/src/components/ui/Page/Page";
 import s from './EventsPage.module.css';
 import FeaturedEvent from "./FeaturedEvent/FeaturedEvent";
 import ContributeDataDrivenPage from "../../ui/ContributeDataDrivenPage/ContributeDataDrivenPage";
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 
 type CategoryFilterOption = data.Category;
 
 const EventsPage: React.FC = () => {
+  const { i18n } = useDocusaurusContext();
   const [categoryFilter, setCategoryFilter] = React.useState<CategoryFilterOption>('events');
   let currcat = categoryFilter;
 
+  const translations = {
+    'zh-cn': {
+      title: "活动",
+      description: "Apache Pulsar 活动",
+      header: "活动",
+      description: "以下是 Pulsar 贡献者举办的主要行业活动列表，以及全球各地的本地聚会。"
+    },
+    'en': {
+      title: "Events",
+      description: "Apache Pulsar Events",
+      header: "Events",
+      description: "Below is a list of key industry events hosted by Pulsar contributors, as well as local meetups around the globe."
+    }
+  };
+
+  const t = (key: string) => translations[i18n.currentLocale]?.[key] || translations['en'][key];
+
   return (
     <Layout
-      title={`Events`}
-      description="Apache Pulsar Events"
+      title={t('title')}
+      description={t('description')}
       wrapperClassName="LandingPage"
     >
       <Page>
         <div className={s.TopBlock}>
           <section className={s.Header}>
-            <h1>Events</h1>
+            <h1>{t('header')}</h1>
             <p>
-              Below is a list of key industry events hosted by Pulsar contributors,
-              as well as local meetups around the globe.
+              {t('description')}
             </p>
             <ContributeDataDrivenPage />
           </section>
