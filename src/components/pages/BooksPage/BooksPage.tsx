@@ -3,13 +3,39 @@ import Layout from "@theme/Layout";
 import Cards from "./Cards/Cards";
 import * as data from '@site/data/books';
 import Page from "@site/src/components/ui/Page/Page";
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import s from './BooksPage.module.css';
 
 type CategoryFilterOption = data.Category | 'any';
 const categoryFilterOptions = ['any', ...data.categories] as const;
 
 const CaseStudiesPage: React.FC = () => {
+  const { i18n } = useDocusaurusContext();
   const [categoryFilter, setCategoryFilter] = React.useState<CategoryFilterOption>('any');
+
+  const translations = {
+    'zh-cn': {
+      title: "书籍",
+      description: "了解使用 Apache Pulsar 的基础知识",
+      header: "书籍",
+      description: "以下书籍集合提供了学习 Apache Pulsar 及相关主题的指导体验。",
+      allCategories: "全部",
+      categoryLabels: {
+        pulsar: 'Pulsar',
+        related_topics: '相关主题'
+      }
+    },
+    'en': {
+      title: "Books",
+      description: "Learn about the basics of using Apache Pulsar",
+      header: "Books",
+      description: "The next collection of books offers a guided learning experience into Apache Pulsar and related subjects.",
+      allCategories: "All",
+      categoryLabels: data.categoryLabels
+    }
+  };
+
+  const t = (key: string) => translations[i18n.currentLocale]?.[key] || translations['en'][key];
   const updateCategoryLinks = (newoption) => {
     setCategoryFilter(newoption);
     let allfilterlinks = document.querySelectorAll('.'+s.CategoryFilterLink);
@@ -20,20 +46,20 @@ const CaseStudiesPage: React.FC = () => {
   }
   return (
     <Layout
-      title={`Books`}
-      description="Learn about the basics of using Apache Pulsar"
+      title={t('title')}
+      description={t('description')}
       wrapperClassName="LandingPage"
     >
       <Page>
-        <section className={s.Header}> 
-          <h1>Books</h1>
-          <p>The next collection of books offers a guided learning experience into Apache Pulsar and related subjects.</p>
+        <section className={s.Header}>
+          <h1>{t('header')}</h1>
+          <p>{t('description')}</p>
         </section>
 
         <div className={s.FiltersMobile}>
           <div>
           {categoryFilterOptions.map((option) => (
-            <button type="button" key={option} data-option={option} onClick={() => updateCategoryLinks(option)} className={s.CategoryFilterLink+(option === 'any' ? ' '+s.active : '')}>{option === 'any' ? 'All' : data.categoryLabels[option]}</button>
+            <button type="button" key={option} data-option={option} onClick={() => updateCategoryLinks(option)} className={s.CategoryFilterLink+(option === 'any' ? ' '+s.active : '')}>{option === 'any' ? t('allCategories') : t('categoryLabels')[option]}</button>
           ))}
           </div>
         </div>
