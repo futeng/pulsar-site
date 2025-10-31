@@ -206,13 +206,13 @@ module.exports = async function createConfigAsync() {
               position: "left",
               items: [
                 {
-                  to: `/docs/${latestVersion}/concepts-overview/`,
-                  activeBaseRegex: `docs/(${versions.join('|')})/concepts-overview/$`,
+                  to: "/docs/next/concepts-overview/",
+                  activeBaseRegex: `docs/next/concepts-overview/$`,
                   label: "概念",
                 },
                 {
-                  to: `/docs/${latestVersion}/`,
-                  activeBaseRegex: `docs/(${versions.join('|')})/$`,
+                  to: "/docs/next/",
+                  activeBaseRegex: `docs/next/$`,
                   label: "快速入门",
                 },
                 {
